@@ -102,7 +102,7 @@
     <Compile Include="TestCase\FE-6836 _Static Screen Test for Customers List.cs" />
     <Compile Include="TestCase\FE-7559 _Static Screen Test Plan for Business Unit Settings.cs" />
     <Compile Include="TestCase\FE-7954 _Web Static Screen Test Plan for Customer Type Screen.cs" />
-    <Compile Include="TestCase\FE-9310 _Ability to Add and Manage Expense Credits.cs" />
+    <Compile Include="TestCase\FE-9310 _Ability to Add and Manage Expense Credits1.cs" />
     <Compile Include="TestCase\Customer.cs" />
     <Compile Include="TestCase\Login.cs" />
     <Compile Include="TestCase\Reports.cs" />
