@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="Handler\WaitHandler.cs" />
     <Compile Include="PageObject\FE_Dashboard.cs" />
+    <Compile Include="PageObject\FE_Login.cs" />
     <Compile Include="PageObject\HomePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCase\FE-5220 _Web Static Screen Test Plan for Custom Forms.cs" />
