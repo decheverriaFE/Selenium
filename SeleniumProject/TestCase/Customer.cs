@@ -35,9 +35,20 @@ namespace SeleniumProject.TestCase
           {
             HomePage home = new HomePage(Driver);
             home.gotoPage();
-    
-         
-            await Task.Delay(2000);
+
+
+            await Task.Delay(5000);
+
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
+            IWebElement CloseWalkme1 = Driver.FindElement(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button"));
+            CloseWalkme1.Click();
+            await Task.Delay(5000);
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-146340 > div.wm-close-button.walkme-x-button")));
+            IWebElement CloseWalkme2 = Driver.FindElement(By.CssSelector("#wm-shoutout-146340 > div.wm-close-button.walkme-x-button"));
+            CloseWalkme2.Click();
+            await Task.Delay(5000);
+
 
             IWebElement ClickCustomer = Driver.FindElement(By.CssSelector("li.side-bar-icon:nth-child(4) > a:nth-child(1) > span:nth-child(2)"));
             ClickCustomer.Click();
@@ -97,19 +108,19 @@ namespace SeleniumProject.TestCase
             Customer_companyname.SendKeys("Customer" + randomInt);
             await Task.Delay(3000);
             //Close Popups WalkMe and wait 30s
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            
             //DotNetSeleniumExtras.WaitHelpers NuGet package needs to be added
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
-            IWebElement CloseWalkme1 = Driver.FindElement(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button"));
-            CloseWalkme1.Click();
-            await Task.Delay(2000);
+           // wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
+            //IWebElement CloseWalkme4 = Driver.FindElement(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button"));
+           //CloseWalkme4.Click();
+            //await Task.Delay(2000);
             //Close Popups WalkMe and wait 30s
            
             //DotNetSeleniumExtras.WaitHelpers NuGet package needs to be added
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
-            IWebElement CloseWalkme2 = Driver.FindElement(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button"));
-            CloseWalkme2.Click();
-            await Task.Delay(2000);
+           // wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
+            //IWebElement CloseWalkme5 = Driver.FindElement(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button"));
+            //CloseWalkme5.Click();
+            //await Task.Delay(2000);
             //Enter random value for address
             IWebElement Customer_address = Driver.FindElement(By.CssSelector("#Address1"));
             Customer_address.Click();
