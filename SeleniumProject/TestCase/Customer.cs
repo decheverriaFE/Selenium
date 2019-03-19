@@ -22,7 +22,7 @@ namespace SeleniumProject.TestCase
 
         [SetUp]  //Nunit - Anotation to execute a method before every test.
         //Start Chrome and goto URL.
-        public void BeforeTest1()
+        public void BeforeTest12()
         {
           
             Driver = new ChromeDriver();
