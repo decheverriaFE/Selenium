@@ -12,24 +12,15 @@ namespace SeleniumProject.PageObject
 {
     class FE_Login
     {
-
-        IWebDriver Driver;
-
-
         public FE_Login() //Class methods
         {
-            StartBrowser();
+
 
         } 
 
-        public FE_Login(IWebDriver driver) //Create Driver
-        {
-            Driver = driver;
-        }
-
         public void StartBrowser() //Go to FieldEdge Login, and sign in
         {
-            Driver = new ChromeDriver();
+           IWebDriver Driver = new ChromeDriver();
             Driver.Url = "http://fieldedgesiteea-staging.azurewebsites.net";
             Driver.Manage().Window.Maximize();
 
