@@ -35,7 +35,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             HomePage home = new HomePage(Driver);
             home.gotoPage();
 
-            await Task.Delay(5000);
+            await Task.Delay(8000);
 
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
@@ -50,6 +50,8 @@ namespace SeleniumProject.TestCase.Static_Tests
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("li.side-bar-icon:nth-child(7) > a:nth-child(1) > span:nth-child(2)")));
             Driver.FindElement(By.CssSelector("li.side-bar-icon:nth-child(7) > a:nth-child(1) > span:nth-child(2)")).Click();
             //Verify columns
+
+           // wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > thead > tr > th:nth-child(1) > span:nth-child(1)")));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > thead > tr > th:nth-child(1) > span:nth-child(1)"), "Customer"));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > thead > tr > th:nth-child(2) > span:nth-child(1)"), "Agreement #"));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > thead > tr > th:nth-child(3) > span:nth-child(1)"), "Agreement Plan"));
