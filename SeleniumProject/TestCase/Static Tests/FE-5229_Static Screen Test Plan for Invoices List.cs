@@ -46,19 +46,21 @@ namespace SeleniumProject.TestCase.Static_Tests
         public async Task InvoiceListColumns() // Click invoices list and verify columns (Test1)
         {
             
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            
-         
 
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#main-page-container > div.settings-sub-menu.clearfix > div.filter-container.clearfix > div.filter-group.box.selected > div.group-amount"), "all"));//1
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(2) > span:nth-child(1)"), "WO #"));//2
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(3) > span:nth-child(1)"), "PO#"));//3
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(4) > span:nth-child(1)"), "Invoice #"));//4
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(5) > span:nth-child(1)"), "Date"));//5
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(6) > span:nth-child(1)"), "Due Date"));//6
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(7) > span:nth-child(1)"), "Total"));//7
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(8) > span:nth-child(1)"), "Due"));//8
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(9) > span:nth-child(1)"), "Technician"));//9
+
+            WebDriverWait wait1 = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+
+            wait1.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#main-page-container > div.top-header-container > div > div > div.active")));
+
+            wait1.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#main-page-container > div.settings-sub-menu.clearfix > div.filter-container.clearfix > div.filter-group.box.selected > div.group-amount"), "all"));//1
+            wait1.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(2) > span:nth-child(1)"), "WO #"));//2
+            wait1.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(3) > span:nth-child(1)"), "PO#"));//3
+            wait1.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(4) > span:nth-child(1)"), "Invoice #"));//4
+            wait1.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(5) > span:nth-child(1)"), "Date"));//5
+            wait1.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(6) > span:nth-child(1)"), "Due Date"));//6
+            wait1.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(7) > span:nth-child(1)"), "Total"));//7
+            wait1.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(8) > span:nth-child(1)"), "Due"));//8
+            wait1.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(9) > span:nth-child(1)"), "Technician"));//9
             await Task.Delay(2000);
             //wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#main-page-container > div.settings-sub-menu.clearfix > div.filter-container.clearfix > div.filter-group.box.selected > div.group-amount"), "all"));
 
