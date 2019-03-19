@@ -25,31 +25,24 @@ namespace SeleniumProject.TestCase.Static_Tests
         {
             HomePage home = new HomePage(Driver);
             home.gotoPage();
-            await Task.Delay(2000);
+            await Task.Delay(5000);
 
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
             IWebElement CloseWalkme1 = Driver.FindElement(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button"));
             CloseWalkme1.Click();
-            await Task.Delay(2000);
+            await Task.Delay(5000);
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-146340 > div.wm-close-button.walkme-x-button")));
             IWebElement CloseWalkme2 = Driver.FindElement(By.CssSelector("#wm-shoutout-146340 > div.wm-close-button.walkme-x-button"));
             CloseWalkme2.Click();
-            await Task.Delay(2000);
+            await Task.Delay(5000);
             //click invoices list
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#sidebar-wrapper > ul > li:nth-child(8) > a > span:nth-child(2)")));
             Driver.FindElement(By.CssSelector("#sidebar-wrapper > ul > li:nth-child(8) > a > span:nth-child(2)")).Click();
-            await Task.Delay(2000);
-
-
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
-            IWebElement CloseWalkme3 = Driver.FindElement(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button"));
-            CloseWalkme3.Click();
-            await Task.Delay(2000);
+            await Task.Delay(2000);            
         }
 
-        [Test]
-        [Order(1)]
+        [Test, Order(1)]
         public async Task InvoiceListColumns() // Click invoices list and verify columns (Test1)
         {
             
@@ -58,21 +51,20 @@ namespace SeleniumProject.TestCase.Static_Tests
          
 
             wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#main-page-container > div.settings-sub-menu.clearfix > div.filter-container.clearfix > div.filter-group.box.selected > div.group-amount"), "all"));//1
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > thead > tr > th:nth-child(2) > span:nth-child(1)")));//2
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > thead > tr > th:nth-child(3) > span:nth-child(1)")));//3
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > thead > tr > th:nth-child(4) > span:nth-child(1)")));//4
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > thead > tr > th:nth-child(5) > span:nth-child(1)")));//5
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > thead > tr > th:nth-child(6) > span:nth-child(1)")));//6
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > thead > tr > th:nth-child(7) > span:nth-child(1)")));//7
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > thead > tr > th:nth-child(8) > span:nth-child(1)")));//8
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > thead > tr > th:nth-child(9) > span:nth-child(1)")));//9
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(2) > span:nth-child(1)"), "WO #"));//2
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(3) > span:nth-child(1)"), "PO#"));//3
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(4) > span:nth-child(1)"), "Invoice #"));//4
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(5) > span:nth-child(1)"), "Date"));//5
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(6) > span:nth-child(1)"), "Due Date"));//6
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(7) > span:nth-child(1)"), "Total"));//7
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(8) > span:nth-child(1)"), "Due"));//8
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(9) > span:nth-child(1)"), "Technician"));//9
             await Task.Delay(2000);
             //wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#main-page-container > div.settings-sub-menu.clearfix > div.filter-container.clearfix > div.filter-group.box.selected > div.group-amount"), "all"));
 
         }
 
-        [Test]
-        [Order(2)]
+        [Test, Order(2)]
         public async Task InvoiceListFilters() // validate second row of filters (Test2)
         {
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
@@ -88,8 +80,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             await Task.Delay(2000);
         }
 
-        [Test]
-        [Order(3)]
+        [Test, Order(3)]
         public async Task InvoiceListSearchSort() //Search and sort filters to ensure it's working (Test 3)
         {
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
