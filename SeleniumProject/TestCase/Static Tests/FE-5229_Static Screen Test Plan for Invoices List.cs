@@ -47,6 +47,7 @@ namespace SeleniumProject.TestCase.Static_Tests
         [Order(1)]
         public async Task InvoiceListColumns() // Click invoices list and verify columns (Test1)
         {
+
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#sidebar-wrapper > ul > li:nth-child(8) > a > span:nth-child(2)")));
             Driver.FindElement(By.CssSelector("#sidebar-wrapper > ul > li:nth-child(8) > a > span:nth-child(2)")).Click();
