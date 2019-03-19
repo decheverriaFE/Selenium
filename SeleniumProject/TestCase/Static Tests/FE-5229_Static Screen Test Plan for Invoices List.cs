@@ -76,6 +76,9 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("#search")).SendKeys("Aberdeen");
             await Task.Delay(2000);
 
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.filter-group:nth-child(8) > div:nth-child(2)")));
+            Driver.FindElement(By.CssSelector("div.filter-group:nth-child(8) > div:nth-child(2)")).Click();
+
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("tr.regular:nth-child(1) > td:nth-child(1) > div:nth-child(1)")));
             Driver.FindElement(By.CssSelector("tr.regular:nth-child(1) > td:nth-child(1) > div:nth-child(1)")).Click();
             await Task.Delay(5000);
