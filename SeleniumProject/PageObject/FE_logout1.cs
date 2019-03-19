@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SeleniumProject.PageObject
 {
-    class FE_logout
+    class FE_logout1
     {
     }
 }
