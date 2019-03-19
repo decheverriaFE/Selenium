@@ -8,5 +8,6 @@ namespace SeleniumProject.TestCase.Static_Tests
 {
     class Agreement
     {
+
     }
 }
