@@ -31,7 +31,7 @@ namespace SeleniumProject.PageObject
         {
             Driver = new ChromeDriver();
             Driver.Url = "http://fieldedgesiteea-staging.azurewebsites.net";
-
+            Driver.Manage().Window.Maximize();
 
             Driver.FindElement(By.CssSelector("#LoginEmail")).SendKeys("auto01@fieldedge.com");
             Driver.FindElement(By.CssSelector("#Password")).SendKeys("qa2019");
