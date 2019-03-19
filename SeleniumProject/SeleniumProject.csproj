@@ -94,7 +94,6 @@
   <ItemGroup>
     <Compile Include="Handler\WaitHandler.cs" />
     <Compile Include="PageObject\FE_Dashboard.cs" />
-    <Compile Include="PageObject\FE_logout.cs" />
     <Compile Include="PageObject\HomePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCase\FE-6832 _Static Screen Test for Job Creation_Job Edit Screen.cs" />
