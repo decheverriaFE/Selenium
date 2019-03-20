@@ -22,8 +22,9 @@ namespace SeleniumProject.TestCase.Static_Tests
         [SetUp]
         public async Task InitializeASync() // Go to Home page 
         {
-            FE_Login FE_login = new FE_Login(Driver);
-            FE_login.gotoPageAsync();
+            HomePage home = new HomePage(Driver);
+            home.gotoPage();
+            await Task.Delay(8000);
 
         }
 
