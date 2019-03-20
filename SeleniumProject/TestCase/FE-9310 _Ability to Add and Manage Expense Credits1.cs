@@ -264,7 +264,24 @@ namespace SeleniumProject.TestCase
 
             WebDriverWait wait18 = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
             wait18.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("tr.inline-editable-table-row:nth-child(2) > td:nth-child(1) > div:nth-child(1) > text:nth-child(1)")));
-            var CostExpense = Driver.FindElement(By.CssSelector("tr.inline-editable-table-row:nth-child(2) > td:nth-child(1) > div:nth-child(1) > text:nth-child(1)"));
+
+            var CostExpense1 = Driver.FindElement(By.CssSelector("#profit-main-section-container > div:nth-child(2) > div.group-field-container > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > text"));
+
+
+            if (!string.IsNullOrEmpty(CostExpense1.Text) && CostExpense1.Text == "Inventory Part")
+
+            {
+
+                WebDriverWait wait16 = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+                wait16.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("button.custom-btn:nth-child(4)")));
+
+                Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(4)")).Click();
+                Driver.FindElement(By.CssSelector("#saveModal > div:nth-child(2) > div.clearfix.modal-button-container > button.custom-btn.success-btn.modal-confirm-button")).Click();
+
+
+            }
+
+            /* var CostExpense = Driver.FindElement(By.CssSelector("tr.inline-editable-table-row:nth-child(2) > td:nth-child(1) > div:nth-child(1) > text:nth-child(1)"));
 
 
             if (!string.IsNullOrEmpty(CostExpense.Text) && CostExpense.Text == "Expenses on Invoice")
@@ -281,16 +298,16 @@ namespace SeleniumProject.TestCase
             }
 
 
-            else
-            {
+            //else
+            //{
                 
-                WebDriverWait wait17 = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-                wait17.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("button.custom-btn:nth-child(3)")));
+                //WebDriverWait wait17 = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+               // wait17.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("button.custom-btn:nth-child(3)")));
 
-                Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(3)")).Click();
+               // Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(3)")).Click();
 
 
-            }
+            //}*/
 
 
 
