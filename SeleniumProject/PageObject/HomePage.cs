@@ -53,8 +53,6 @@ namespace SeleniumProject.PageObject
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#login-form > div:nth-child(8) > input")));
             Driver.FindElement(By.CssSelector("#login-form > div:nth-child(8) > input")).Click();
 
-
-               
         }
         [TearDown]
         public void TearDown()

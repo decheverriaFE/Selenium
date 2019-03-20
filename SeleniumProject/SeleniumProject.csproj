@@ -96,7 +96,6 @@
     <Compile Include="PageObject\FE_Dashboard.cs" />
     <Compile Include="PageObject\FE_Login.cs" />
     <Compile Include="PageObject\HomePage.cs" />
-    <Compile Include="PageObject\Lists\Dashboard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCase\Static Tests\FE-5227_Web Static Screen Test Plan for Phone Setup.cs" />
     <Compile Include="TestCase\Static Tests\FE-5542 Web Static Screen Test Plan for Agreements List.cs" />
@@ -119,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ExtentReport\" />
+    <Folder Include="PageObject\Lists\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
