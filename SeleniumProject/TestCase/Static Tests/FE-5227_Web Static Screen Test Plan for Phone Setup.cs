@@ -36,6 +36,13 @@ namespace SeleniumProject.TestCase.Static_Tests
             IWebElement CloseWalkme2 = Driver.FindElement(By.CssSelector("#wm-shoutout-146340 > div.wm-close-button.walkme-x-button"));
             CloseWalkme2.Click();
             await Task.Delay(5000);
+
+            //Go to Phone setup
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#setting-link-container > ul > li > a")));
+            Driver.FindElement(By.CssSelector("#setting-link-container > ul > li > a")).Click();
+
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#application-menu > div:nth-child(1) > ul > li:nth-child(5) > a > text")));
+            Driver.FindElement(By.CssSelector("#application-menu > div:nth-child(1) > ul > li:nth-child(5) > a > text")).Click();
         }
     }
 
