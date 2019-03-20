@@ -25,7 +25,6 @@ namespace SeleniumProject.TestCase.Static_Tests
             HomePage home = new HomePage(Driver);
             home.gotoPage();
             await Task.Delay(8000);
-
         }
 
         [Test, Order(1)]
