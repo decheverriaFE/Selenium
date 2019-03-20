@@ -59,7 +59,7 @@ namespace SeleniumProject.PageObject
         [TearDown]
         public void TearDown()
         {
-            Driver.Close();
+           // Driver.Close();
         }
 
     }
