@@ -21,7 +21,7 @@ namespace SeleniumProject.TestCase.Static_Tests
         
 
         [SetUp]
-        public async Task InitializeAsync() // Initialize new Chrome Driver, go to homepage
+        public async Task Initialize() // Initialize new Chrome Driver, go to homepage
         {
             HomePage home = new HomePage(Driver);
             home.gotoPage();
@@ -37,11 +37,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             IWebElement CloseWalkme2 = Driver.FindElement(By.CssSelector("#wm-shoutout-146340 > div.wm-close-button.walkme-x-button"));
             CloseWalkme2.Click();
             await Task.Delay(5000);
-
-            //click invoices list
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#sidebar-wrapper > ul > li:nth-child(8) > a > span:nth-child(2)")));
-            Driver.FindElement(By.CssSelector("#sidebar-wrapper > ul > li:nth-child(8) > a > span:nth-child(2)")).Click();
-            await Task.Delay(2000);            
+          
         }
 
         [Test, Order(1)]
@@ -49,6 +45,11 @@ namespace SeleniumProject.TestCase.Static_Tests
         {
             
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+
+            //click invoices list
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#sidebar-wrapper > ul > li:nth-child(8) > a > span:nth-child(2)")));
+            Driver.FindElement(By.CssSelector("#sidebar-wrapper > ul > li:nth-child(8) > a > span:nth-child(2)")).Click();
+            await Task.Delay(2000);
 
             //Verify each column/Filters are visible
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#main-page-container > div.top-header-container > div > div > div.active")));
