@@ -96,7 +96,9 @@ namespace SeleniumProject.TestCase.Static_Tests
                 Driver.FindElement(By.CssSelector("#TwilioFailoverPhone")).Click();
                 Driver.FindElement(By.CssSelector("#TwilioFailoverPhone")).Clear();
                 Driver.FindElement(By.CssSelector("button.small:nth-child(1)")).Click();
-                Assert.Fail("Changes were not present. FAIL");
+                Assert.Fail("FE-5227, Changes were not present. FAIL");
+                await Task.Delay(5000);
+
                 Driver.FindElement(By.CssSelector("")).Click(); //If this comes here, the test did not find saved changes '1234567890'.
                 
             }
