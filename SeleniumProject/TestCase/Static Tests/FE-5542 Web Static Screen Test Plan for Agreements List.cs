@@ -30,7 +30,7 @@ namespace SeleniumProject.TestCase.Static_Tests
         }
 
         [Test]//Nunit - Anotation to mark a method as a Automated TestCase 
-        public async Task AgreementLIst()
+        public async Task AgreementList()
         {
 
             HomePage home = new HomePage(Driver);
@@ -40,15 +40,6 @@ namespace SeleniumProject.TestCase.Static_Tests
 
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
 
-            /*
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
-            IWebElement CloseWalkme1 = Driver.FindElement(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button"));
-            CloseWalkme1.Click();
-            await Task.Delay(5000);
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-146340 > div.wm-close-button.walkme-x-button")));
-            IWebElement CloseWalkme2 = Driver.FindElement(By.CssSelector("#wm-shoutout-146340 > div.wm-close-button.walkme-x-button"));
-            CloseWalkme2.Click();
-            await Task.Delay(5000);*/
             //Select Agreement
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("li.side-bar-icon:nth-child(7) > a:nth-child(1) > span:nth-child(2)")));
             Driver.FindElement(By.CssSelector("li.side-bar-icon:nth-child(7) > a:nth-child(1) > span:nth-child(2)")).Click();
