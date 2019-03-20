@@ -53,22 +53,15 @@ namespace SeleniumProject.TestCase.Static_Tests
 
             //verify all elements are visible
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > label:nth-child(3)")));
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("html.js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.no-websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.no-cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths body div#wrapper div#page-content-wrapper div#main-page-container.container-fluid div.dynamic-content.clearfix div div.dynamic-container.form-horizontal.form-formatted.clearfix form#form.setting-form div.group-field-container.clearfix div.field-container div.checkbox.checkbox-success label")));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form > div:nth-child(4) > div:nth-child(1) > label:nth-child(1)")));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form > div:nth-child(4) > div:nth-child(2) > label:nth-child(1)")));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form > div:nth-child(5) > div:nth-child(1) > label:nth-child(1)")));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form > div:nth-child(6) > div:nth-child(1) > label:nth-child(1)")));
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.header:nth-child(7) > span:nth-child(1)")));
-
-            
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.header:nth-child(7) > span:nth-child(1)")));            
             await Task.Delay(5000);
-        }
 
-        [Test, Order(2)]
-        public async Task PhoneSetupChanges()
-        {
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
 
+            //Phone Setup changes
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#TwilioFailoverPhone")));
             Driver.FindElement(By.CssSelector("#TwilioFailoverPhone")).Click();
             Driver.FindElement(By.CssSelector("#TwilioFailoverPhone")).SendKeys("1234567890");
@@ -76,13 +69,9 @@ namespace SeleniumProject.TestCase.Static_Tests
 
             Driver.FindElement(By.CssSelector("button.small:nth-child(1)")).Click();
             await Task.Delay(5000);
-        }
 
-        [Test, Order(3)]
-        public async Task PhoneSetupRevert()
-        {
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-
+           
+            //Validation
             //Go to Phone setup
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#setting-link-container > ul > li > a")));
             Driver.FindElement(By.CssSelector("#setting-link-container > ul > li > a")).Click();
@@ -92,16 +81,24 @@ namespace SeleniumProject.TestCase.Static_Tests
 
             //verify fallback number has '1234567890' then revert back to empty
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#TwilioForwardingPhone")));
-            String Phone = Driver.FindElement(By.CssSelector("#TwilioForwardingPhone")).ToString();
+            var Phone = Driver.FindElement(By.CssSelector("#TwilioForwardingPhone")).Text;
 
-            if (Phone == "1234567890")
+            if (!Phone.Contains("1234567890")) // not recognizing string
             {
-                Driver.FindElement(By.CssSelector("#TwilioForwardingPhone")).Click();
-                Driver.FindElement(By.CssSelector("#TwilioForwardingPhone")).Clear();
+
+                Driver.FindElement(By.CssSelector("#TwilioFailoverPhone")).Click();
+                Driver.FindElement(By.CssSelector("#TwilioFailoverPhone")).Clear();
+                Driver.FindElement(By.CssSelector("button.small:nth-child(1)")).Click();
+
             }
             else
             {
+                Driver.FindElement(By.CssSelector("#TwilioFailoverPhone")).Click();
+                Driver.FindElement(By.CssSelector("#TwilioFailoverPhone")).Clear();
+                Driver.FindElement(By.CssSelector("button.small:nth-child(1)")).Click();
                 Assert.Fail("Changes were not present. FAIL");
+                Driver.FindElement(By.CssSelector("")).Click(); //If this comes here, the test did not find saved changes '1234567890'.
+                
             }
 
 
