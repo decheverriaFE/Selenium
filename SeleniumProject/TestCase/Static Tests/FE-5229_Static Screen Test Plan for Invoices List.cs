@@ -21,12 +21,13 @@ namespace SeleniumProject.TestCase.Static_Tests
         
 
         [SetUp]
-        public async Task InitializeAsync() // Initialize new Chrome Driver
+        public async Task InitializeAsync() // Initialize new Chrome Driver, go to homepage
         {
             HomePage home = new HomePage(Driver);
             home.gotoPage();
             await Task.Delay(5000);
 
+            //Close popups
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
             IWebElement CloseWalkme1 = Driver.FindElement(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button"));
@@ -36,6 +37,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             IWebElement CloseWalkme2 = Driver.FindElement(By.CssSelector("#wm-shoutout-146340 > div.wm-close-button.walkme-x-button"));
             CloseWalkme2.Click();
             await Task.Delay(5000);
+
             //click invoices list
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#sidebar-wrapper > ul > li:nth-child(8) > a > span:nth-child(2)")));
             Driver.FindElement(By.CssSelector("#sidebar-wrapper > ul > li:nth-child(8) > a > span:nth-child(2)")).Click();
@@ -48,6 +50,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
 
+            //Verify each column/Filters are visible
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#main-page-container > div.top-header-container > div > div > div.active")));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("th.sortable:nth-child(2) > span:nth-child(1)")));//1
             wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(2) > span:nth-child(1)"), "WO #"));//2
@@ -84,7 +87,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             await Task.Delay(5000);
         }
         [TearDown]
-        public void ShutDown()
+        public void ShutDown() //Shut down driver
         {
             Driver.Quit();
         }
