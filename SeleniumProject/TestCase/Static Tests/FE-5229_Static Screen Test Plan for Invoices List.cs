@@ -51,7 +51,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("#sidebar-wrapper > ul > li:nth-child(8) > a > span:nth-child(2)")).Click();
             await Task.Delay(2000);
 
-            //Verify each column/Filters are visible
+            //Verify each column-Filters are visible
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#main-page-container > div.top-header-container > div > div > div.active")));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("th.sortable:nth-child(2) > span:nth-child(1)")));//1
             wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("th.sortable:nth-child(2) > span:nth-child(1)"), "WO #"));//2
