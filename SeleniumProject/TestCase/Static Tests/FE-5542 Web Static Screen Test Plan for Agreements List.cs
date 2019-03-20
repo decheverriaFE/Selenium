@@ -12,10 +12,11 @@ using SeleniumWaitHelper = SeleniumExtras.WaitHelpers;
 
 namespace SeleniumProject.TestCase.Static_Tests
 {
-    class Agreement
+    class FE_5542_Web_Static_Screen_Test_Plan_for_Agreements_List
     {
         //Selenium Driver
         protected IWebDriver Driver;
+        
 
         public object SeleniumExtras { get; private set; }
 
