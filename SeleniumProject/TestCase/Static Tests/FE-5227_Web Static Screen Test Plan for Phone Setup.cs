@@ -92,7 +92,17 @@ namespace SeleniumProject.TestCase.Static_Tests
 
             //verify fallback number has '1234567890' then revert back to empty
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#TwilioForwardingPhone")));
+            String Phone = Driver.FindElement(By.CssSelector("#TwilioForwardingPhone")).ToString();
 
+            if (Phone == "1234567890")
+            {
+                Driver.FindElement(By.CssSelector("#TwilioForwardingPhone")).Click();
+                Driver.FindElement(By.CssSelector("#TwilioForwardingPhone")).Clear();
+            }
+            else
+            {
+                Assert.Fail("Changes were not present. FAIL");
+            }
 
 
             await Task.Delay(5000);
