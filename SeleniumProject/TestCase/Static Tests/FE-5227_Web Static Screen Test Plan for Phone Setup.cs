@@ -20,7 +20,7 @@ namespace SeleniumProject.TestCase.Static_Tests
         IWebDriver Driver = new ChromeDriver();
 
         [SetUp]
-        public async Task InitializeASync() // Go to Home page and click Settings --> Phone setup.
+        public async Task InitializeASync() // Go to Home page 
         {
             HomePage home = new HomePage(Driver);
             home.gotoPage();
@@ -36,6 +36,12 @@ namespace SeleniumProject.TestCase.Static_Tests
             IWebElement CloseWalkme2 = Driver.FindElement(By.CssSelector("#wm-shoutout-146340 > div.wm-close-button.walkme-x-button"));
             CloseWalkme2.Click();
             await Task.Delay(5000);
+        }
+
+        [Test, Order(1)]
+        public async Task PhoneSetupTest() // FE-5227, test phone setup
+        {
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
 
             //Go to Phone setup
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#setting-link-container > ul > li > a")));
@@ -43,6 +49,11 @@ namespace SeleniumProject.TestCase.Static_Tests
 
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#application-menu > div:nth-child(1) > ul > li:nth-child(5) > a > text")));
             Driver.FindElement(By.CssSelector("#application-menu > div:nth-child(1) > ul > li:nth-child(5) > a > text")).Click();
+
+
+
+
+            await Task.Delay(5000);
         }
     }
 
