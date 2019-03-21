@@ -41,8 +41,11 @@ namespace SeleniumProject.TestCase.Static_Tests
             await Task.Delay(5000);
 
             //Select Equipment and make one inactive --> save. Verify it is no longer in view.
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#select0")));
-            Driver.FindElement(By.CssSelector("#select0")).Click();
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".fixed-body")));
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("tr.single:nth-child(1)")));
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("tr.single:nth-child(1) > td:nth-child(1) > div:nth-child(1) > div:nth-child(1)")));
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.Id("select0")));
+            Driver.FindElement(By.Id("select0")).Click();
             Driver.FindElement(By.CssSelector("#EditItemsButton")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.radio:nth-child(1) > label:nth-child(2)")));
             Driver.FindElement(By.CssSelector("div.radio:nth-child(1) > label:nth-child(2)")).Click();
