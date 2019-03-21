@@ -87,5 +87,11 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > tbody > tr > td:nth-child(1) > div")).Click();
 
         }
+
+        [TearDown]
+        public void closeDown()
+        {
+            Driver.Quit();
+        }
     }
 }
