@@ -45,12 +45,7 @@ namespace SeleniumProject.TestCase
             Driver.FindElement(By.CssSelector("li.side-bar-icon:nth-child(4) > a:nth-child(1) > span:nth-child(2)")).Click();
             await Task.Delay(2000);
 
-            //DotNetSeleniumExtras.WaitHelpers NuGet package needs to be added
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
-            IWebElement CloseWalkme1 = Driver.FindElement(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button"));
-            CloseWalkme1.Click();
-            await Task.Delay(2000);
-
+           
 
 
             // Validate the column labels displayed.

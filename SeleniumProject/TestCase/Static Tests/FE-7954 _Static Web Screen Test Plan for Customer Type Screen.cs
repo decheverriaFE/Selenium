@@ -39,10 +39,7 @@ namespace SeleniumProject.TestCase
 
             //DotNetSeleniumExtras.WaitHelpers NuGet package needs to be added
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
-            IWebElement CloseWalkme1 = Driver.FindElement(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button"));
-            CloseWalkme1.Click();
-            await Task.Delay(2000);
+            
 
             //Go to Settings/Customer Types.
             

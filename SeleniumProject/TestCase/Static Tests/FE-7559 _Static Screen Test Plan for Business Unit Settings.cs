@@ -56,9 +56,7 @@ namespace SeleniumProject.TestCase
             await Task.Delay(2000);
 
             //DotNetSeleniumExtras.WaitHelpers NuGet package needs to be added
-            wait2.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
-            IWebElement CloseWalkme1 = Driver.FindElement(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button"));
-            CloseWalkme1.Click();
+           
             await Task.Delay(2000);
 
 
@@ -78,12 +76,12 @@ namespace SeleniumProject.TestCase
             wait2.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".business-unit > span:nth-child(2) > b:nth-child(1)")));
             Driver.FindElement(By.CssSelector(".business-unit > span:nth-child(2) > b:nth-child(1)")).Click();
             await Task.Delay(3000);
-            Driver.FindElement(By.CssSelector(".select2-search__field")).Click();
-            Driver.FindElement(By.CssSelector(".select2-search__field")).SendKeys("Global" + Keys.Enter);
-            /*IList<IWebElement> options1 = Driver.FindElements(By.ClassName("select2-results__options"));
+            Driver.FindElement(By.CssSelector("#select2-2rcy-container > span")).Click();
+            Driver.FindElement(By.CssSelector("#select2-2rcy-container > span")).SendKeys("Global" + Keys.Enter);
+           // IList<IWebElement> options1 = Driver.FindElements(By.ClassName("select2-results__options"));
 
-            if (options1.Any())
-                options1[0].Click();*/
+           // if (options1.Any())
+               // options1[0].Click();
 
             wait2.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("button.custom-btn:nth-child(3)")));
             Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(3)")).Click();

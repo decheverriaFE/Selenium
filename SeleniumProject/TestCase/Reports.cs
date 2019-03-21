@@ -39,13 +39,8 @@ namespace SeleniumProject.TestCase
 
             await Task.Delay(8000);
 
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            //DotNetSeleniumExtras.WaitHelpers NuGet package needs to be added
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
-            IWebElement CloseWalkme1 = Driver.FindElement(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button"));
-            CloseWalkme1.Click();
-            await Task.Delay(2000);
 
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
             //Select Report Menu ---OK
             IWebElement ClickReport = Driver.FindElement(By.CssSelector("li.side-bar-icon:nth-child(12) > a:nth-child(1) > span:nth-child(2)"));
             ClickReport.Click();
