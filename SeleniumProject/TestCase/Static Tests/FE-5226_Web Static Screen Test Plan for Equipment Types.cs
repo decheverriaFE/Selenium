@@ -41,47 +41,65 @@ namespace SeleniumProject.TestCase.Static_Tests
             await Task.Delay(5000);
 
             //Select Equipment and make one inactive --> save. Verify it is no longer in view.
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".fixed-body")));
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("tr.single:nth-child(1)")));
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("tr.single:nth-child(1) > td:nth-child(1) > div:nth-child(1) > div:nth-child(1)")));
-            
-            //Select CheckBox on First Element
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div")));
-            Driver.FindElement(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > div")).Click();
-            //--------------------------------------------
-
-
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#search")));
+            Driver.FindElement(By.CssSelector("#search")).SendKeys("6 Burner Stove" + Keys.Enter);
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".checkbox-inline")));
+            Driver.FindElement(By.CssSelector(".checkbox-inline")).Click();
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#EditItemsButton")));
             Driver.FindElement(By.CssSelector("#EditItemsButton")).Click();
+
+            //Click 'Mark Inactive' --> Save
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#edit-items > div:nth-child(1)")));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.radio:nth-child(1) > label:nth-child(2)")));
             Driver.FindElement(By.CssSelector("div.radio:nth-child(1) > label:nth-child(2)")).Click();
-            await Task.Delay(5000);
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#edit-items > div:nth-child(1) > form:nth-child(3) > div:nth-child(4) > button:nth-child(1)")));
+            Driver.FindElement(By.CssSelector("#edit-items > div:nth-child(1) > form:nth-child(3) > div:nth-child(4) > button:nth-child(1)")).Click();
+            await Task.Delay(3000);
 
-            var burnerStove = Driver.FindElement(By.CssSelector("tr.single:nth-child(1) > td:nth-child(2) > div:nth-child(1)")).Text;
 
-            if (!burnerStove.Contains("6 Burner Stove")) //Fail - If it finds 6 burner stove in first element of index[0]
+            var equipType = Driver.FindElement(By.CssSelector("tr.single:nth-child(1)")).Text; //returns string inside of inactive element
+
+            if (!equipType.Equals("6 Burner Stove")) //Pass - Made EquipType Inactive
             {
-                Assert.Fail("JIRA FE-5226, Test Failed did not make equipment type inactive");
-                Driver.FindElement(By.CssSelector("")).Click();
-
+                wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#search")));
+                Driver.FindElement(By.CssSelector("#search")).SendKeys("6 Burner Stove" + Keys.Enter);
+                wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.filter-group:nth-child(1) > div:nth-child(2)")));
+                Driver.FindElement(By.CssSelector("div.filter-group:nth-child(1) > div:nth-child(2)")).Click();
+                wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".checkbox-inline")));
+                Driver.FindElement(By.CssSelector(".checkbox-inline")).Click();
+                wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#EditItemsButton")));
+                Driver.FindElement(By.CssSelector("#EditItemsButton")).Click();
+                wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#edit-items > div:nth-child(1)")));
+                wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#edit-items > div:nth-child(1) > form:nth-child(3) > div:nth-child(4) > button:nth-child(1)")));
+                Driver.FindElement(By.CssSelector("#edit-items > div:nth-child(1) > form:nth-child(3) > div:nth-child(4) > button:nth-child(1)")).Click();
+                await Task.Delay(2000);
             }
             else //Pass - It did not find it - type was succesfully made inactive, reverts back.
             {
-                Driver.FindElement(By.CssSelector("div.filter-group:nth-child(1) > div:nth-child(2)")).Click();
-                wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#select0")));
-                Driver.FindElement(By.CssSelector("#select0")).Click();
-                Driver.FindElement(By.CssSelector("#EditItemsButton"));
-                wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#edit-items > div:nth-child(1) > form:nth-child(3) > div:nth-child(4) > button:nth-child(1)")));
-                Driver.FindElement(By.CssSelector("#edit-items > div:nth-child(1) > form:nth-child(3) > div:nth-child(4) > button:nth-child(1)")).Click();
-
+                Assert.Fail("JIRA FE-5226, Test Failed did not make equipment type inactive");
+                Driver.FindElement(By.CssSelector("")).Click();
             }
 
+            //Check filters in Settings --> Equipment types
+
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".secondary-filter")));
+            Driver.FindElement(By.CssSelector(".secondary-filter")).Click();
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".filter-popup")));
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".filter-multiselect > div:nth-child(1)")));
+            Driver.FindElement(By.CssSelector("#selected0_0_1")).Click();
+            Driver.FindElement(By.CssSelector("#selected0_0_10")).Click();
+            await Task.Delay(1000);
+            Driver.FindElement(By.CssSelector(".filter-popup > div:nth-child(4) > button:nth-child(1)")).Click();
+            await Task.Delay(2000);
+            Driver.FindElement(By.CssSelector("li.side-bar-icon:nth-child(4) > a:nth-child(1)")).Click();
+            await Task.Delay(3000);
             
         }
 
         [TearDown]
         public void Closer()
         {
-            //Driver.Quit();
+            Driver.Quit();
         }
     }
 }
