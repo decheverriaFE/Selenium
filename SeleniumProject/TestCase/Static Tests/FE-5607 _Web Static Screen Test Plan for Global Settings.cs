@@ -118,5 +118,11 @@ namespace SeleniumProject.TestCase.Static_Tests
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form > div:nth-child(33) > div:nth-child(4) > div")));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form > div:nth-child(33) > div.field-container.button-container.clearfix > button")));
         }
+
+        [TearDown]
+        public void closeDown()
+        {
+            Driver.Quit();
+        }
     }
 }
