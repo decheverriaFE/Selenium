@@ -43,7 +43,7 @@ namespace SeleniumProject.TestCase
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
 
 
-            //Select Agreement
+           
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#setting-link-container > ul > li > a")));
             Driver.FindElement(By.CssSelector("#setting-link-container > ul > li > a")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#application-menu > div:nth-child(4) > ul > li:nth-child(9) > a > text")));

@@ -46,7 +46,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#application-menu > div:nth-child(4) > ul > li:nth-child(10) > a > text")));
             Driver.FindElement(By.CssSelector("#application-menu > div:nth-child(4) > ul > li:nth-child(10) > a > text")).Click();
 
-                       
+             //Payment select        
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form > div.group-field-container.clearfix > div:nth-child(2) > div")));
             Driver.FindElement(By.CssSelector("#form > div.group-field-container.clearfix > div:nth-child(2) > div")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form > div.group-field-container.clearfix > div:nth-child(3) > div")));
