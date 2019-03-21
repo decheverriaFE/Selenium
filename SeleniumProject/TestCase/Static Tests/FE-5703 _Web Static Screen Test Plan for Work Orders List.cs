@@ -105,5 +105,14 @@ namespace SeleniumProject.TestCase.Static_Tests
 
             
         }
+
+        public void AfterTest()
+        {
+
+          Driver.Quit();
+            
+        }
+
     }
+
 }

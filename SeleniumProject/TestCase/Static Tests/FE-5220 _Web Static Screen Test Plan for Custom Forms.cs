@@ -51,9 +51,11 @@ namespace SeleniumProject.TestCase
             //Add a new Form
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#label > div > div.button-container > button")));
             Driver.FindElement(By.CssSelector("#label > div > div.button-container > button")).Click();
-            Driver.FindElement(By.CssSelector("#Name")).SendKeys("AutomationForm");
+            Random randomGenerator = new Random();
+            int randomInt = randomGenerator.Next(1000000);
+            Driver.FindElement(By.CssSelector("#Name")).SendKeys("AutomationForm" + randomInt);
             Driver.FindElement(By.CssSelector("#form > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > input")).SendKeys("Automation Description");
-            Driver.FindElement(By.CssSelector("#form > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > input")).SendKeys("Automation Description");
+            
             //Drag and Drop
 
             IWebElement From = Driver.FindElement(By.CssSelector("#form > div > div:nth-child(4) > div > div > div > ul.source.draggable.drop-zone > li:nth-child(2)"));
@@ -72,21 +74,37 @@ namespace SeleniumProject.TestCase
             act1.DragAndDrop(From1, To1).Build().Perform();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#id0 > div > div.field-area.verticalFlex > textarea.form-control.field")));
             Driver.FindElement(By.CssSelector("#id0 > div > div.field-area.verticalFlex > textarea.form-control.field")).SendKeys("FieldMultipleChoise Form");
+            await Task.Delay(3000);
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form > div > div:nth-child(5) > div > label")));
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form > div > div:nth-child(5) > div > div > div:nth-child(1) > div:nth-child(4) > div")));
+            Driver.FindElement(By.CssSelector("#form > div > div:nth-child(5) > div > div > div:nth-child(1) > div:nth-child(4) > div")).Click();
 
-            //move to rows
-            
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form > div > div:nth-child(6) > div > div > div.checkbox.checkbox-success.field-checkbox")));
+            Driver.FindElement(By.CssSelector("#form > div > div:nth-child(6) > div > div > div.checkbox.checkbox-success.field-checkbox")).Click();
 
-            Actions actions1 = new Actions(Driver);
-            IWebElement From2 = Driver.FindElement(By.CssSelector("#id0 > div"));
-            IWebElement To2 = Driver.FindElement(By.CssSelector("#id1 > div"));
-            actions1.DragAndDrop(From2, To2);
-            actions1.Build().Perform();
+                                          
 
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#label > div > div.button-container > button.custom-btn.success-btn.save-btn")));
+            Driver.FindElement(By.CssSelector("#label > div > div.button-container > button.custom-btn.success-btn.save-btn")).Click();
 
+            await Task.Delay(3000);
 
-            // wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#label > div > div.button-container > button.custom-btn.success-btn.save-btn")));
-            // Driver.FindElement(By.CssSelector("#label > div > div.button-container > button.custom-btn.success-btn.save-btn")).Click();
-
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#search")));
+            Driver.FindElement(By.CssSelector("#search")).SendKeys("AutomationForm" + Keys.Enter);
+            await Task.Delay(3000);
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div > div.main-content.clearfix > table > tbody > tr:nth-child(1) > td:nth-child(1) > div")));
+            Driver.FindElement(By.CssSelector("#settings-information-container > div > div.main-content.clearfix > table > tbody > tr:nth-child(1) > td:nth-child(1) > div")).Click();
+            await Task.Delay(3000);
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > input")));
+            Driver.FindElement(By.CssSelector("#form > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > input")).SendKeys("Automation Description Edited");
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div > div")));
+            Driver.FindElement(By.CssSelector("#form > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div > div")).Click();
+                       
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#label > div > div.button-container > button.custom-btn.success-btn.save-btn")));
+            Driver.FindElement(By.CssSelector("#label > div > div.button-container > button.custom-btn.success-btn.save-btn")).Click();
+            await Task.Delay(3000);
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div > div.main-content.clearfix > table > thead > tr > th:nth-child(1)")));
+            Driver.FindElement(By.CssSelector("#settings-information-container > div > div.main-content.clearfix > table > thead > tr > th:nth-child(1)")).Click();
 
 
         }
