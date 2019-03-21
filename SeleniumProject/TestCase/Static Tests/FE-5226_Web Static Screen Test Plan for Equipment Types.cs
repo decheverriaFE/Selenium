@@ -54,6 +54,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("div.radio:nth-child(1) > label:nth-child(2)")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#edit-items > div:nth-child(1) > form:nth-child(3) > div:nth-child(4) > button:nth-child(1)")));
             Driver.FindElement(By.CssSelector("#edit-items > div:nth-child(1) > form:nth-child(3) > div:nth-child(4) > button:nth-child(1)")).Click();
+
             await Task.Delay(3000);
 
 
@@ -81,7 +82,6 @@ namespace SeleniumProject.TestCase.Static_Tests
             }
 
             //Check filters in Settings --> Equipment types
-
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".secondary-filter")));
             Driver.FindElement(By.CssSelector(".secondary-filter")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".filter-popup")));
@@ -97,7 +97,7 @@ namespace SeleniumProject.TestCase.Static_Tests
         }
 
         [TearDown]
-        public void Closer()
+        public void Closer() //Close browser
         {
             Driver.Quit();
         }
