@@ -19,7 +19,7 @@ namespace SeleniumProject.TestCase.Static_Tests
 {
     class FE_5226_Web_Static_Screen_Test_Plan_for_Equipment_Types
     {
-        IWebDriver Driver = new ChromeDriver;
+        IWebDriver Driver = new ChromeDriver();
 
         [SetUp]
         public async Task Initialize()
@@ -30,8 +30,13 @@ namespace SeleniumProject.TestCase.Static_Tests
         }
 
         [Test, Order(1)]
-        public async Task EquipmentTypes()
+        public async Task EquipmentTypes() //Run Equipment type test for JIRA FE-5226
         {
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("li.clearfix:nth-child(1) > a:nth-child(3)")));
+            Driver.FindElement(By.CssSelector("li.clearfix:nth-child(1) > a:nth-child(3)")).Click();
+            await Task.Delay(5000);
 
         }
     }
