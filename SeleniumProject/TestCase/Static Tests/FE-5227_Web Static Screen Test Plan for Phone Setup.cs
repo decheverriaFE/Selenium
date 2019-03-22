@@ -69,9 +69,9 @@ namespace SeleniumProject.TestCase.Static_Tests
 
             //verify fallback number has '1234567890' then revert back to empty
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#TwilioForwardingPhone")));
-            var Phone = Driver.FindElement(By.CssSelector("#TwilioForwardingPhone")).Text;
+            var phone = Driver.FindElement(By.CssSelector("#TwilioForwardingPhone")).GetAttribute("value");
 
-            if (!Phone.Equals("1234567890")) // Determines whether update to phone setup are found. Reverts in either case.
+            if (phone == ("1234567890")) // Determines whether update to phone setup are found. Reverts in either case.
             {
 
                 Driver.FindElement(By.CssSelector("#TwilioFailoverPhone")).Click();

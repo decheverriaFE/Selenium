@@ -53,12 +53,9 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("div.setting-container:nth-child(4) > ul:nth-child(2) > li:nth-child(3) > a:nth-child(1) > text:nth-child(1)")).Click();
             await Task.Delay(2000);
 
-            var authText = Driver.FindElement(By.CssSelector("#AuthorizationText")).Text;
-            String authTextTest = authText + ("This is the Authorization.");
+            var text = Driver.FindElement(By.CssSelector("#AuthorizationText")).GetAttribute("value");
 
-            System.Diagnostics.Debug.WriteLine("This is the var authTextTest: " + authText);
-
-            if (!authText.Equals(authTextTest)) //Pass
+            if (text == "This is the Authorization.") //Pass
             {
                 Driver.FindElement(By.CssSelector("#AuthorizationText")).Click();
                 Driver.FindElement(By.CssSelector("#AuthorizationText")).SendKeys(Keys.End + Keys.Backspace);
