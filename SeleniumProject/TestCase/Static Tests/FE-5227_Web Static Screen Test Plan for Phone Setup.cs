@@ -71,7 +71,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#TwilioForwardingPhone")));
             var Phone = Driver.FindElement(By.CssSelector("#TwilioForwardingPhone")).Text;
 
-            if (!Phone.Contains("1234567890")) // Determines whether update to phone setup are found. Reverts in either case.
+            if (!Phone.Equals("1234567890")) // Determines whether update to phone setup are found. Reverts in either case.
             {
 
                 Driver.FindElement(By.CssSelector("#TwilioFailoverPhone")).Click();

@@ -33,8 +33,8 @@ namespace SeleniumProject.TestCase.Static_Tests
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
 
             //Settings --> Mobile setup
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));")));
-            Driver.FindElement(By.CssSelector("WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));")).Click();
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("li.clearfix:nth-child(1) > a:nth-child(3)")));
+            Driver.FindElement(By.CssSelector("li.clearfix:nth-child(1) > a:nth-child(3)")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.setting-container:nth-child(4) > ul:nth-child(2) > li:nth-child(3) > a:nth-child(1) > text:nth-child(1)")));
             Driver.FindElement(By.CssSelector("div.setting-container:nth-child(4) > ul:nth-child(2) > li:nth-child(3) > a:nth-child(1) > text:nth-child(1)")).Click();
             await Task.Delay(2000);
@@ -47,19 +47,23 @@ namespace SeleniumProject.TestCase.Static_Tests
             await Task.Delay(2000);
 
             //Go back into set up, and verify changes were made, if they were revert them and pass test. != change, fail test.
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));")));
-            Driver.FindElement(By.CssSelector("WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));")).Click();
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("li.clearfix:nth-child(1) > a:nth-child(3)")));
+            Driver.FindElement(By.CssSelector("li.clearfix:nth-child(1) > a:nth-child(3)")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.setting-container:nth-child(4) > ul:nth-child(2) > li:nth-child(3) > a:nth-child(1) > text:nth-child(1)")));
             Driver.FindElement(By.CssSelector("div.setting-container:nth-child(4) > ul:nth-child(2) > li:nth-child(3) > a:nth-child(1) > text:nth-child(1)")).Click();
             await Task.Delay(2000);
 
             var authText = Driver.FindElement(By.CssSelector("#AuthorizationText")).Text;
+            String authTextTest = authText + ("This is the Authorization.");
 
-            if (!authText.Contains("This is the Authorization.")) //Pass
+            System.Diagnostics.Debug.WriteLine("This is the var authTextTest: " + authText);
+
+            if (!authText.Equals(authTextTest)) //Pass
             {
                 Driver.FindElement(By.CssSelector("#AuthorizationText")).Click();
-                Driver.FindElement(By.CssSelector("#AuthorizationText")).SendKeys(Keys.Backspace);
+                Driver.FindElement(By.CssSelector("#AuthorizationText")).SendKeys(Keys.End + Keys.Backspace);
                 Driver.FindElement(By.CssSelector("#form > div:nth-child(5) > button:nth-child(1)")).Click();
+                await Task.Delay(2000);
 
             }
             else //Fail
@@ -68,11 +72,12 @@ namespace SeleniumProject.TestCase.Static_Tests
                 Driver.FindElement(By.CssSelector("")).Click();
             }
 
+            await Task.Delay(2000);
         }
 
         [TearDown]
-        public void Closer()
-        {
+        public void Closer() //Close Browser
+        {          
             Driver.Quit();
         }
     }
