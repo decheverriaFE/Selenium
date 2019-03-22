@@ -99,6 +99,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCase\Static Tests\FE-5221 _Web Static Screen Test Plan Payment Processing.cs" />
     <Compile Include="TestCase\Static Tests\FE-5222 _Web Static Screen Test Plan for Markup Settings.cs" />
+    <Compile Include="TestCase\Static Tests\FE-5225_Web Static Screen Test Plan for Item Screen.cs" />
     <Compile Include="TestCase\Static Tests\FE-5226_Web Static Screen Test Plan for Equipment Types.cs" />
     <Compile Include="TestCase\Static Tests\FE-5227_Web Static Screen Test Plan for Phone Setup.cs" />
     <Compile Include="TestCase\Static Tests\FE-5542 Web Static Screen Test Plan for Agreements List.cs" />
