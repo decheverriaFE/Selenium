@@ -19,7 +19,7 @@ namespace SeleniumProject.TestCase.Static_Tests
     {
         IWebDriver Driver = new ChromeDriver();
 
-        [SetUp]
+
         public async Task Initialize()
         {
             HomePage home = new HomePage(Driver);
@@ -27,7 +27,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             await Task.Delay(8000);
         }
 
-        [Test, Order(1)]
+
         public async Task ItemsScreen() //Run Item screen task for JIRA FE-5225
         {
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
@@ -49,22 +49,22 @@ namespace SeleniumProject.TestCase.Static_Tests
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("li.active-result:nth-child(2)")));
             Driver.FindElement(By.CssSelector("li.active-result:nth-child(2)")).Click();
 
+
             Random randomGenerator = new Random();
             int randomInt = randomGenerator.Next(1000000);
             Driver.FindElement(By.CssSelector("#NonInventoryItemName")).SendKeys("Automation Test" + randomInt + Keys.Enter);
+            Driver.FindElement(By.CssSelector("#NonInventoryItemName")).SendKeys(Keys.Tab + Keys.Tab + Keys.Tab + Keys.Tab + Keys.Clear + "5"); //Verify there is no change between tabs, ie, new fields
+            Driver.FindElement(By.CssSelector("#NonInventoryItemPrice")).Clear();
+            Driver.FindElement(By.CssSelector("#NonInventoryItemPrice")).SendKeys("10");
+            Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(3)")).Click();
 
-            Driver.FindElement(By.CssSelector("#InventoryItemCost")).Clear();
-            Driver.FindElement(By.CssSelector("#InventoryItemCost")).SendKeys("5");
-            Driver.FindElement(By.CssSelector("#InventoryItemPrice")).Clear();
-            Driver.FindElement(By.CssSelector("#InventoryItemPrice")).SendKeys("10");
+            
+        }
 
-            Driver.FindElement(By.CssSelector("#InventoryItemForm > div:nth-child(19) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > a:nth-child(1)")).Click();
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#InventoryItemForm > div:nth-child(19) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(2)")));
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("li.active-result:nth-child(3)")));
-            Driver.FindElement(By.CssSelector("li.active-result:nth-child(3)")).Click();
-            Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(2)")).Click();
-            
-            
+
+        public void Closer()
+        {
+            Driver.Close();
         }
 
 

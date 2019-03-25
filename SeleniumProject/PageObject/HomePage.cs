@@ -54,7 +54,7 @@ namespace SeleniumProject.PageObject
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#login-form > div:nth-child(8) > input")));
             Driver.FindElement(By.CssSelector("#login-form > div:nth-child(8) > input")).Click();
 
-            Thread.Sleep(8000);
+            Thread.Sleep(4000);
 
 
             //Popups, This handles 2, adjust accordingly until function is created for this.
