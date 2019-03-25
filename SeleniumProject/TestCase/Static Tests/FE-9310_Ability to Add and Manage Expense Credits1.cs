@@ -42,7 +42,7 @@ namespace SeleniumProject.TestCase
             await Task.Delay(5000);
 
 
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(30));
 
             //Go to Global Settings.Ensure "Add Expenses to Invoice by Default" is selected. Ensure a non - inventory item is selected in "Expense Non-Inventory Item" field.
 

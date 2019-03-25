@@ -201,12 +201,12 @@ namespace SeleniumProject.TestCase
            
 
 
-            wait3.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#ekashu_header_collect_data")));
+            /*wait3.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#ekashu_header_collect_data")));
             wait3.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#ekashu_card_number")));
             IWebElement ClickCardNumber = Driver.FindElement(By.CssSelector("#ekashu_card_number"));
             ClickCardNumber.Click();
             ClickCardNumber.SendKeys("41111111111111111");
-            ClickCardNumber.SendKeys(Keys.Tab + "11" + Keys.Tab + "2020");
+            ClickCardNumber.SendKeys(Keys.Tab + "11" + Keys.Tab + "2020");/*
 
            
             /*IWebElement DateExpmonth = Driver.FindElement(By.Id("ekashu_input_expires_end_month"));
