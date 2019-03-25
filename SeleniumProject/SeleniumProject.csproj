@@ -94,6 +94,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Handler\ReportHandler.cs" />
+    <Compile Include="Handler\ScreenShotHandler.cs" />
     <Compile Include="Handler\WaitHandler.cs" />
     <Compile Include="PageObject\HomePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,7 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ExtentReport\" />
-    <Folder Include="PageObject\Lists\" />
+    <Folder Include="PageObject\Reports\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
