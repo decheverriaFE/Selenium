@@ -36,6 +36,7 @@ namespace SeleniumProject.TestCase
             home.gotoPage();
 
             await Task.Delay(2000);
+        }
 
 
             /*//In FE web, go to Settings / Business Unit Settings / Ability to sort the columns, search, view inactive BU's, filter the list, and view Add Unit screen

@@ -3,25 +3,17 @@ using AventStack.ExtentReports.Reporter;
 using AventStack.ExtentReports.Reporter.Configuration;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+using System.Linq;
 
-namespace AutomationFramework.Handler
+namespace SeleniumProject.Handler
 {
-    public sealed class ReportHandler
+    [TestFixture]
+    public class ReportHandler
     {
-        private static readonly Lazy<ExtentReports> Lazy = new Lazy<ExtentReports>(() => new ExtentReports());
-
-        public static ExtentReports Instance { get { return Lazy.Value; } }
-
-        static ReportHandler()
-        {
-            var htmlReporter = new ExtentHtmlReporter(TestContext.CurrentContext.TestDirectory + "\\Report.html");
-            htmlReporter.LoadConfig(TestContext.CurrentContext.TestDirectory + "\\extent-config.xml");
-            Instance.AttachReporter(htmlReporter);
-        }
-
-        private ReportHandler()
-        {
-        }
+        
     }
 }
 
