@@ -44,7 +44,7 @@ namespace SeleniumProject.TestCase
 
             WebDriverWait wait3 = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
 
-            wait3.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.Id("search")));
+           /* wait3.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.Id("search")));
             IWebElement SearchCustomer = Driver.FindElement(By.Id("search"));
             SearchCustomer.SendKeys("Subway" + Keys.Enter);
 
