@@ -108,5 +108,10 @@ namespace SeleniumProject.TestCase
 
 
         }
+        [TearDown]
+        public void closeDown()
+        {
+            Driver.Quit();
+        }
     }
 }
