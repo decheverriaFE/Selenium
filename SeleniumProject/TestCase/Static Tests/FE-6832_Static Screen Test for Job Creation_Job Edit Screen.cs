@@ -44,16 +44,7 @@ namespace SeleniumProject.TestCase
             await Task.Delay(2000);
 
 
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.Id("search")));
-            IWebElement SearchCustomer = Driver.FindElement(By.Id("search"));
-            SearchCustomer.SendKeys("Aberdeen" + Keys.Enter);
-            await Task.Delay(5000);
-            //Close Popups WalkMe and wait 30s
-            //DotNetSeleniumExtras.WaitHelpers NuGet package needs to be added
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
-            IWebElement CloseWalkme1 = Driver.FindElement(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button"));
-            CloseWalkme1.Click();
-            await Task.Delay(2000);
+            
 
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".fixed-body > tr:nth-child(1) > td:nth-child(1) > div:nth-child(1)")));
 

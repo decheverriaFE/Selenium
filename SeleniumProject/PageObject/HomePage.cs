@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using SeleniumWaitHelper = SeleniumExtras.WaitHelpers;
 
@@ -53,13 +54,29 @@ namespace SeleniumProject.PageObject
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#login-form > div:nth-child(8) > input")));
             Driver.FindElement(By.CssSelector("#login-form > div:nth-child(8) > input")).Click();
 
+            Thread.Sleep(4000);
+
+
+            //Popups, This handles 2, adjust accordingly until function is created for this.
+
+            /* wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
+            IWebElement CloseWalkme1 = Driver.FindElement(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button"));
+            CloseWalkme1.Click();
+            Thread.Sleep(8000);
+
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-146340 > div.wm-close-button.walkme-x-button")));
+            IWebElement CloseWalkme2 = Driver.FindElement(By.CssSelector("#wm-shoutout-146340 > div.wm-close-button.walkme-x-button"));
+            CloseWalkme2.Click();
+            Thread.Sleep(8000);*/
+
+         
 
 
         }
         [TearDown]
         public void TearDown()
         {
-            Driver.Close();
+           // Driver.Close();
         }
 
     }

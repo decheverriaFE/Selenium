@@ -39,21 +39,15 @@ namespace SeleniumProject.TestCase
             HomePage home = new HomePage(Driver);
             home.gotoPage();
 
+            await Task.Delay(5000);
 
-            await Task.Delay(8000);
 
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            //DotNetSeleniumExtras.WaitHelpers NuGet package needs to be added
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
-            IWebElement CloseWalkme1 = Driver.FindElement(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button"));
-            CloseWalkme1.Click();
-            await Task.Delay(2000);
-
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(30));
 
             //Go to Global Settings.Ensure "Add Expenses to Invoice by Default" is selected. Ensure a non - inventory item is selected in "Expense Non-Inventory Item" field.
 
-                 
-            
+
+
 
             Driver.FindElement(By.CssSelector("#setting-link-container > ul > li > a")).Click();
             await Task.Delay(2000);
@@ -262,7 +256,24 @@ namespace SeleniumProject.TestCase
 
             WebDriverWait wait18 = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
             wait18.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("tr.inline-editable-table-row:nth-child(2) > td:nth-child(1) > div:nth-child(1) > text:nth-child(1)")));
-            var CostExpense = Driver.FindElement(By.CssSelector("tr.inline-editable-table-row:nth-child(2) > td:nth-child(1) > div:nth-child(1) > text:nth-child(1)"));
+
+            var CostExpense1 = Driver.FindElement(By.CssSelector("#profit-main-section-container > div:nth-child(2) > div.group-field-container > table > tbody > tr:nth-child(1) > td:nth-child(1) > div > text"));
+
+
+            if (!string.IsNullOrEmpty(CostExpense1.Text) && CostExpense1.Text == "Inventory Part")
+
+            {
+
+                WebDriverWait wait16 = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+                wait16.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("button.custom-btn:nth-child(4)")));
+
+                Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(4)")).Click();
+                Driver.FindElement(By.CssSelector("#saveModal > div:nth-child(2) > div.clearfix.modal-button-container > button.custom-btn.success-btn.modal-confirm-button")).Click();
+
+
+            }
+
+            /* var CostExpense = Driver.FindElement(By.CssSelector("tr.inline-editable-table-row:nth-child(2) > td:nth-child(1) > div:nth-child(1) > text:nth-child(1)"));
 
 
             if (!string.IsNullOrEmpty(CostExpense.Text) && CostExpense.Text == "Expenses on Invoice")
@@ -279,16 +290,16 @@ namespace SeleniumProject.TestCase
             }
 
 
-            else
-            {
+            //else
+            //{
                 
-                WebDriverWait wait17 = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-                wait17.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("button.custom-btn:nth-child(3)")));
+                //WebDriverWait wait17 = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+               // wait17.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("button.custom-btn:nth-child(3)")));
 
-                Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(3)")).Click();
+               // Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(3)")).Click();
 
 
-            }
+            //}*/
 
 
 

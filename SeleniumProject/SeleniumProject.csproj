@@ -35,20 +35,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DnsClient, Version=1.0.7.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
-      <HintPath>..\packages\DnsClient.1.0.7\lib\net45\DnsClient.dll</HintPath>
+    <Reference Include="DnsClient, Version=1.2.0.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
+      <HintPath>..\packages\DnsClient.1.2.0\lib\net45\DnsClient.dll</HintPath>
     </Reference>
     <Reference Include="ExtentReports, Version=4.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ExtentReports.4.0.3\lib\ExtentReports.dll</HintPath>
     </Reference>
-    <Reference Include="MongoDB.Bson, Version=2.7.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MongoDB.Bson.2.7.2\lib\net45\MongoDB.Bson.dll</HintPath>
+    <Reference Include="MongoDB.Bson, Version=2.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.8.0\lib\net452\MongoDB.Bson.dll</HintPath>
     </Reference>
-    <Reference Include="MongoDB.Driver, Version=2.7.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MongoDB.Driver.2.7.2\lib\net45\MongoDB.Driver.dll</HintPath>
+    <Reference Include="MongoDB.Driver, Version=2.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.8.0\lib\net452\MongoDB.Driver.dll</HintPath>
     </Reference>
-    <Reference Include="MongoDB.Driver.Core, Version=2.7.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MongoDB.Driver.Core.2.7.2\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    <Reference Include="MongoDB.Driver.Core, Version=2.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.8.0\lib\net452\MongoDB.Driver.Core.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -66,16 +66,18 @@
       <HintPath>..\packages\DotNetSeleniumExtras.WaitHelpers.3.11.0\lib\net45\SeleniumExtras.WaitHelpers.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Buffers.4.3.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -92,19 +94,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Handler\ReportHandler.cs" />
+    <Compile Include="Handler\ScreenShotHandler.cs" />
     <Compile Include="Handler\WaitHandler.cs" />
-    <Compile Include="PageObject\FE_Dashboard.cs" />
-    <Compile Include="PageObject\FE_Login.cs" />
     <Compile Include="PageObject\HomePage.cs" />
-    <Compile Include="PageObject\Payment_Clearent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestCase\Static Tests\FE-5220 _Web Static Screen Test Plan for Custom Forms.cs" />
-    <Compile Include="TestCase\Static Tests\FE-5542 _Web Static Screen Test Plan for Agreements List.cs" />
-    <Compile Include="TestCase\Static Tests\FE-6832 _Static Screen Test for Job Creation_Job Edit Screen.cs" />
+    <Compile Include="TestCase\Static Tests\FE-5216_Web Static Screen Test Plan for Master Equipment Screen.cs" />
+    <Compile Include="TestCase\Static Tests\FE-5219_Web Static Screen Test Plan for Time Entries.cs" />
+    <Compile Include="TestCase\Static Tests\FE-5221_Web Static Screen Test Plan Payment Processing.cs" />
+    <Compile Include="TestCase\Static Tests\FE-5222 _Web Static Screen Test Plan for Markup Settings.cs" />
+    <Compile Include="TestCase\Static Tests\FE-5223_Web Static Screen Test Plan for Mobile Setup Screen.cs" />
+    <Compile Include="TestCase\Static Tests\FE-5225_Web Static Screen Test Plan for Item Screen%28pending%29.cs" />
+    <Compile Include="TestCase\Static Tests\FE-5226_Web Static Screen Test Plan for Equipment Types.cs" />
+    <Compile Include="TestCase\Static Tests\FE-5227_Web Static Screen Test Plan for Phone Setup.cs" />
+    <Compile Include="TestCase\Static Tests\FE-5542_Web Static Screen Test Plan for Agreements List.cs" />
+    <Compile Include="TestCase\Static Tests\FE-5220_Web Static Screen Test Plan for Custom Forms.cs" />
+    <Compile Include="TestCase\Static Tests\FE-5229_Web Static Screen Test Plan for Invoices List.cs" />
+    <Compile Include="TestCase\Static Tests\FE-5607_Web Static Screen Test Plan for Global Settings.cs" />
+    <Compile Include="TestCase\Static Tests\FE-5703_Web Static Screen Test Plan for Work Orders List.cs" />
+    <Compile Include="TestCase\Static Tests\FE-6832_Static Screen Test for Job Creation_Job Edit Screen.cs" />
     <Compile Include="TestCase\Static Tests\FE-6836 _Static Screen Test for Customers List.cs" />
-    <Compile Include="TestCase\Static Tests\FE-7559 _Static Screen Test Plan for Business Unit Settings.cs" />
-    <Compile Include="TestCase\Static Tests\FE-7954 _Static Web Screen Test Plan for Customer Type Screen.cs" />
-    <Compile Include="TestCase\FE-9310 _Ability to Add and Manage Expense Credits1.cs" />
+    <Compile Include="TestCase\Static Tests\FE-7559_Static Screen Test Plan for Business Unit Settings.cs" />
+    <Compile Include="TestCase\Static Tests\FE-7954_Static Web Screen Test Plan for Customer Type Screen.cs" />
+    <Compile Include="TestCase\Static Tests\FE-9310_Ability to Add and Manage Expense Credits1.cs" />
     <Compile Include="TestCase\Customer.cs" />
     <Compile Include="TestCase\Login.cs" />
     <Compile Include="TestCase\Reports.cs" />
@@ -112,10 +124,12 @@
     <Compile Include="TestCase\SmokeTestingWeb_ECS.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ExtentReport\" />
+    <Folder Include="PageObject\Reports\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
