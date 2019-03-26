@@ -14,6 +14,8 @@ using Keys = OpenQA.Selenium.Keys;
 using NUnit.Framework;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
+using System.Drawing.Imaging;
+
 
 namespace SeleniumProject.TestCase.Static_Tests
 {
@@ -24,7 +26,7 @@ namespace SeleniumProject.TestCase.Static_Tests
         ExtentReports extent = null;
         ExtentTest test = null;
 
-        [OneTimeSetUp] //
+        [OneTimeSetUp] //Start extent reporting instance using htmlreporter
         public void ExtentStart()
         {
             extent = new ExtentReports(); // Create object for extent reports
@@ -48,11 +50,11 @@ namespace SeleniumProject.TestCase.Static_Tests
         }
 
         [Test, Order(1)] //Test Master-Equipment
-        public async Task EquipmentScreenTest()
+        public async Task FE_5216_EquipmentScreenTest()
         {
             try
             {
-                test = extent.CreateTest("EquipmentScreenTest").Info("Test Started"); //Mark start of test.
+                test = extent.CreateTest("FE_5216_EquipmentScreenTest").Info("Test Started"); //Mark start of test.
 
                 //Declare local variables 
                 Random randomGenerator = new Random();
@@ -153,6 +155,7 @@ namespace SeleniumProject.TestCase.Static_Tests
                     wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#search")));
                     Driver.FindElement(By.CssSelector("#search")).SendKeys(newEquip);
                     wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".G > td:nth-child(1) > div:nth-child(1)")));
+                    await Task.Delay(2000);
                     Driver.FindElement(By.CssSelector(".G > td:nth-child(1) > div:nth-child(1)")).Click();
                     wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".checkbox > label:nth-child(2)")));
                     Driver.FindElement(By.CssSelector(".checkbox > label:nth-child(2)")).Click();
@@ -176,6 +179,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             }
             catch(Exception e)
             {
+                test.Log(Status.Fail, e.ToString());
                 throw;
             }
         }
