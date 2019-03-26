@@ -22,7 +22,7 @@ namespace SeleniumProject.TestCase.Static_Tests
     [TestFixture]
     public class FE_5216_Web_Static_Screen_Test_Plan_for_Master_Equipment_Screen
     {
-        
+
         IWebDriver Driver = new ChromeDriver();
         ExtentReports extent = null;
         ExtentTest test = null;
@@ -31,13 +31,15 @@ namespace SeleniumProject.TestCase.Static_Tests
         [OneTimeSetUp] //Start extent reporting instance using htmlreporter
         public void ExtentStart()
         {
-            ReportHandler.ExtentStart();
+            extent = new ExtentReports(); // Create object for extent reports
+            var htmlReporter = new ExtentHtmlReporter(@"C:\Users\rdasilva\Source\Repos\decheverriaFE\Selenium\SeleniumProject\ExtentReport\"); // needs html endpoint, storing on extentreport folder
+            extent.AttachReporter(htmlReporter); 
         }
 
         [OneTimeTearDown]
         public void ExtentClose()
         {
-            ReportHandler.ExtentClose();
+            extent.Flush();
         }
 
         [SetUp]

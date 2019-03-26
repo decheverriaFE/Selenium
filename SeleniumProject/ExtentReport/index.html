@@ -53,7 +53,7 @@
           </li>
             <li class="m-r-10">
                 <a href="#">
-                    <span class="badge badge-primary">3/26/2019 8:53:50 AM</span>
+                    <span class="badge badge-primary">3/26/2019 11:18:15 AM</span>
                 </a>
             </li>
         </ul>
@@ -108,7 +108,7 @@
 											<i class="fa fa-exclamation-circle"></i>
 										</a>
 										<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a status="pass" class="dropdown-item" href="#"><span>Pass</span><span class="status success pull-right"></span></a>																																																																		<div class="dropdown-divider"></div>
+											<a status="fail" class="dropdown-item" href="#"><span>Fail</span><span class="status danger pull-right"></span></a>																																																							<div class="dropdown-divider"></div>
 											<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 										</ul>
 									</li>
@@ -116,25 +116,25 @@
                             </div>
                             <div class="test-list-wrapper scrollable">
                                 <ul class="test-list-item">
-										<li class="test-item" status="pass" author="" device="" tag=""> 
-											<div class="status-avatar pass-bg">
-												<i class="fa fa-check text-white"></i>
+										<li class="test-item" status="fail" author="" device="" tag=""> 
+											<div class="status-avatar fail-bg">
+												<i class="fa fa-times text-white"></i>
 											</div>
 											<div class="open-test">
 												<div class="test-detail"> 
 													<p class="name">FE_5216_EquipmentScreenTest</p> 
-													<p class="duration text-sm">0h:0m:37s+031ms</p> 
-													<span class="datetime">08:54:04 AM</span>
+													<p class="duration text-sm">0h:0m:30s+182ms</p> 
+													<span class="datetime">11:18:28 AM</span>
 												</div>
 											</div>
 											<div class="test-contents d-none">
 												<div class="detail-head">
 													<div class="p-v-10 d-inline-block">	
 														<div class="info">
-															<h5 class="test-status text-pass">FE_5216_EquipmentScreenTest</h5>
-															<span class='badge badge-success'>3/26/2019 8:54:04 AM</span>
-															<span class='badge badge-danger'>3/26/2019 8:54:41 AM</span>
-															<span class='badge badge-default'>0h:0m:37s+031ms</span>
+															<h5 class="test-status text-fail">FE_5216_EquipmentScreenTest</h5>
+															<span class='badge badge-success'>3/26/2019 11:18:28 AM</span>
+															<span class='badge badge-danger'>3/26/2019 11:18:58 AM</span>
+															<span class='badge badge-default'>0h:0m:30s+182ms</span>
 														</div>
 																											</div>
 												</div>
@@ -149,81 +149,37 @@
 	<tbody>
 			<tr class="event-row">
 				<td><i class="fa fa-info text-info"></i></td>
-				<td>08:54:04</td>
+				<td>11:18:28</td>
 				<td>
 Test Started									</td>
 			</tr>
 			<tr class="event-row">
 				<td><i class="fa fa-info text-info"></i></td>
-				<td>08:54:04</td>
+				<td>11:18:28</td>
 				<td>
 Local Variables created and assigned.									</td>
 			</tr>
 			<tr class="event-row">
-				<td><i class="fa fa-check text-pass"></i></td>
-				<td>08:54:08</td>
+				<td><i class="fa fa-times text-fail"></i></td>
+				<td>11:18:58</td>
 				<td>
-Navigate to settings --> Master Equipment.									</td>
-			</tr>
-			<tr class="event-row">
-				<td><i class="fa fa-check text-pass"></i></td>
-				<td>08:54:09</td>
-				<td>
-Add new Master Equipment.									</td>
-			</tr>
-			<tr class="event-row">
-				<td><i class="fa fa-check text-pass"></i></td>
-				<td>08:54:13</td>
-				<td>
-Fill in fields for new Master Equipment --> Save									</td>
-			</tr>
-			<tr class="event-row">
-				<td><i class="fa fa-info text-info"></i></td>
-				<td>08:54:14</td>
-				<td>
-Verify new master Equipment is visible in Settings --> Master Equipment.									</td>
-			</tr>
-			<tr class="event-row">
-				<td><i class="fa fa-check text-pass"></i></td>
-				<td>08:54:14</td>
-				<td>
-New Master Equipment found! PASS									</td>
-			</tr>
-			<tr class="event-row">
-				<td><i class="fa fa-check text-pass"></i></td>
-				<td>08:54:16</td>
-				<td>
-Click Master Equipment created --> Make a change to the Comments section to test validation.									</td>
-			</tr>
-			<tr class="event-row">
-				<td><i class="fa fa-info text-info"></i></td>
-				<td>08:54:18</td>
-				<td>
-Verify changes were actually done									</td>
-			</tr>
-			<tr class="event-row">
-				<td><i class="fa fa-check text-pass"></i></td>
-				<td>08:54:19</td>
-				<td>
-Changes made - PASS									</td>
-			</tr>
-			<tr class="event-row">
-				<td><i class="fa fa-check text-pass"></i></td>
-				<td>08:54:36</td>
-				<td>
-Tested making Master Equipment inactive -- Then Active. PASS									</td>
-			</tr>
-			<tr class="event-row">
-				<td><i class="fa fa-check text-pass"></i></td>
-				<td>08:54:36</td>
-				<td>
-Tested Filters --> Return to Dashboard.									</td>
-			</tr>
-			<tr class="event-row">
-				<td><i class="fa fa-check text-pass"></i></td>
-				<td>08:54:41</td>
-				<td>
-FE_5216_Web_Static_Screen_Test_Plan_for_Master_Equipment_Screen - PASSED.									</td>
+OpenQA.Selenium.WebDriverTimeoutException: Timed out after 30 seconds ---> OpenQA.Selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=73.0.3683.75)
+  (Driver info: chromedriver=2.45.615291 (ec3682e3c9061c10f26ea9e5cdcf3c53f3f74387),platform=Windows NT 10.0.17134 x86_64)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
+   at SeleniumExtras.WaitHelpers.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)
+   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)
+   --- End of inner exception stack trace ---
+   at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)
+   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)
+   at SeleniumProject.TestCase.Static_Tests.FE_5216_Web_Static_Screen_Test_Plan_for_Master_Equipment_Screen.<FE_5216_EquipmentScreenTest>d__6.MoveNext() in C:\Users\rdasilva\Source\Repos\decheverriaFE\Selenium\SeleniumProject\TestCase\Static Tests\FE-5216_Web Static Screen Test Plan for Master Equipment Screen.cs:line 73									</td>
 			</tr>
 	</tbody>
 </table>
