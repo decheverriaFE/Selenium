@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SeleniumProject.MasterTest.StaticTestsWithReports
 {
-    class StatisTests
+    class StaticTests
     {
         
     }
