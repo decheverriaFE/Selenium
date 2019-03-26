@@ -102,7 +102,7 @@ namespace SeleniumProject.TestCase.Static_Tests
                 //Verify new Equipment is visible
                 Driver.FindElement(By.CssSelector("#search")).SendKeys(newEquip);
                 wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".G > td:nth-child(2) > div:nth-child(1)")));
-                var findEquip = Driver.FindElement(By.CssSelector("#settings-information-container > div:nth-child(1) > div:nth-child(2)")).GetAttribute("value");
+                String findEquip = Driver.FindElement(By.CssSelector("#settings-information-container > div:nth-child(1) > div:nth-child(2)")).GetAttribute("value");
                 test.Log(Status.Info, "Verify new master Equipment is visible in Settings --> Master Equipment.");
 
                 if (findEquip == "the filter shows no results")
