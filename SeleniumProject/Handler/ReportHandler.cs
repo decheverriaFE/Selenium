@@ -20,10 +20,8 @@ namespace SeleniumProject.handler
     [TestFixture]
     public class ReportHandler//Reports handler, to be callable
     {
-        public static void ReportHandlerTool()
-        {
-            IWebDriver Driver = new ChromeDriver();
-            public static ExtentReports extent = null;
+        IWebDriver Driver = new ChromeDriver();
+        public static ExtentReports extent = null;
         public static ExtentTest test = null;
 
         [OneTimeSetUp] //Start extent reporting instance using htmlreporter
@@ -35,14 +33,11 @@ namespace SeleniumProject.handler
         }
 
         [OneTimeTearDown]
-        public void ExtentClose()
+        public static void ExtentClose()
         {
             extent.Flush();
         }
-    }
 
     }
-
 }
-
 
