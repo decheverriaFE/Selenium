@@ -16,7 +16,7 @@ using SeleniumWaitHelper = SeleniumExtras.WaitHelpers;
 namespace SeleniumProject.TestCase.Static_Tests
 
 {
-    [TestFixture]
+    
     class FE_5204_Web_Static_Screen_Test_Plan_for_Weekly_Schedule_Screen
     {
         
@@ -40,9 +40,16 @@ namespace SeleniumProject.TestCase.Static_Tests
 
         [SetUp]  //Nunit - Anotation to execute a method before every test.
         //Start Chrome
+
+
         public void BeforeTest()
         {
             Driver = new ChromeDriver();
+
+            HomePage home = new HomePage(Driver);
+            home.gotoPage();
+
+          
 
 
         }
@@ -55,10 +62,7 @@ namespace SeleniumProject.TestCase.Static_Tests
                 test = extent.CreateTest("Weekly_Schedule").Info("Test Started"); //Mark start of test.
 
 
-                HomePage home = new HomePage(Driver);
-            home.gotoPage();
-
-            await Task.Delay(3000);
+               
 
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(30));
 
@@ -97,9 +101,9 @@ namespace SeleniumProject.TestCase.Static_Tests
 
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#weeklySchedulForm > div:nth-child(2) > button.custom-btn.success-btn.small")));
             Driver.FindElement(By.CssSelector("#weeklySchedulForm > div:nth-child(2) > button.custom-btn.success-btn.small")).Click();
+                test.Log(Status.Info, "FE_5204_Web_Static_Screen_Test_Plan_for_Weekly_Schedule_Screen__PASSED!");
 
-         
-        }
+            }
 
             catch (Exception e)
             {
@@ -111,8 +115,8 @@ namespace SeleniumProject.TestCase.Static_Tests
         [TearDown]
         public void CloseDown()
         {
-            //Driver.Quit();
-            //test.Log(Status.Info, "FE_5204_Web_Static_Screen_Test_Plan_for_Weekly_Schedule_Screen__PASSED!");
+            Driver.Quit();
+            
         }
     }
 }
