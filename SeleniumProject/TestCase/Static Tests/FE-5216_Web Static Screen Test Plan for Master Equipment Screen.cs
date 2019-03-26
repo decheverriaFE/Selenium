@@ -71,13 +71,13 @@ namespace SeleniumProject.TestCase.Static_Tests
                 wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.setting-container:nth-child(2) > ul:nth-child(4) > li:nth-child(2) > a:nth-child(1) > text:nth-child(1)")));
                 Driver.FindElement(By.CssSelector("div.setting-container:nth-child(2) > ul:nth-child(4) > li:nth-child(2) > a:nth-child(1) > text:nth-child(1)")).Click();
                 await Task.Delay(2000);
-                test.Log(Status.Info, "Navigate to settings --> Master Equipment.");
+                test.Log(Status.Pass, "Navigate to settings --> Master Equipment.");
 
                 //Add Master Equipment
                 wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#label > div:nth-child(1)")));
                 wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.button-container:nth-child(2) > button:nth-child(1)")));
                 Driver.FindElement(By.CssSelector("div.button-container:nth-child(2) > button:nth-child(1)")).Click();
-                test.Log(Status.Info, "Add new Master Equipment.");
+                test.Log(Status.Pass, "Add new Master Equipment.");
 
                 //New Master Equipment screen
                 wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".dynamic-container")));
@@ -90,7 +90,7 @@ namespace SeleniumProject.TestCase.Static_Tests
                 Driver.FindElement(By.CssSelector("#Model")).SendKeys(newEquip);
                 Driver.FindElement(By.CssSelector("#Comments")).SendKeys(comment);
                 Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(2)")).Click();
-                test.Log(Status.Info, "Fill in fields for new Master Equipment --> Save");
+                test.Log(Status.Pass, "Fill in fields for new Master Equipment --> Save");
                 await Task.Delay(1000);
 
 
@@ -118,7 +118,7 @@ namespace SeleniumProject.TestCase.Static_Tests
                 Driver.FindElement(By.CssSelector("#Comments")).SendKeys("...");
                 var newValueComments = Driver.FindElement(By.CssSelector("#Comments")).GetAttribute("value");
                 Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(2)")).Click();
-                test.Log(Status.Info, "Click Master Equipment created --> Make a change to the Comments section to test validation.");
+                test.Log(Status.Pass, "Click Master Equipment created --> Make a change to the Comments section to test validation.");
 
 
                 //Verify new changes
@@ -159,14 +159,14 @@ namespace SeleniumProject.TestCase.Static_Tests
                     Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(2)")).Click();
                     await Task.Delay(1000);
                 }
-                test.Log(Status.Info, "Tested making Master Equipment inactive -- Then Active. PASS");
+                test.Log(Status.Pass, "Tested making Master Equipment inactive -- Then Active. PASS");
 
                 //Verify columns/Filters working
                 wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("th.sortable:nth-child(3)")));
                 Driver.FindElement(By.CssSelector("th.sortable:nth-child(3)")).Click();
                 wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("th.sortable:nth-child(2)")));
                 Driver.FindElement(By.CssSelector("th.sortable:nth-child(2)")).Click();
-                test.Log(Status.Info, "Tested Filters --> Return to Dashboard.");
+                test.Log(Status.Pass, "Tested Filters --> Return to Dashboard.");
                 await Task.Delay(1000);
 
                 Driver.FindElement(By.CssSelector("li.side-bar-icon:nth-child(1) > a:nth-child(1) > span:nth-child(2)")).Click();
