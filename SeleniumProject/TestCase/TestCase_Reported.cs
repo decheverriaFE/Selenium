@@ -143,7 +143,8 @@ namespace SeleniumExtentReportTest
                 string pth = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
                 var dir = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "");
                 DirectoryInfo di = Directory.CreateDirectory(dir + "\\Defect_Screenshots\\");
-                string finalpth = pth.Substring(0, pth.LastIndexOf("bin")) + "\\Defect_Screenshots\\" +screenShotName + ".png";
+                string finalpth = $@"{pth.Substring(0, pth.LastIndexOf("bin"))}\Defect_Screenshots\{screenShotName}.png";
+                //string finalpth = pth.Substring(0, pth.LastIndexOf("bin")) + "\\Defect_Screenshots\\" + screenShotName + ".png";
                 localpath = new Uri(finalpth).LocalPath;
                 screenshot.SaveAsFile(localpath);
             }

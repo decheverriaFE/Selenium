@@ -44,9 +44,66 @@ namespace SeleniumProject.TestCase.Static_Tests
 
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#setting-link-container > ul > li > a")));
             Driver.FindElement(By.CssSelector("#setting-link-container > ul > li > a")).Click();
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#application-menu > div:nth-child(3) > ul:nth-child(2) > li:nth-child(3) > a > text")));
-            Driver.FindElement(By.CssSelector("#application-menu > div:nth-child(3) > ul:nth-child(2) > li:nth-child(3) > a > text")).Click();
-            //Update Techs
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#application-menu > div:nth-child(3) > ul:nth-child(2) > li:nth-child(2) > a > text")));
+            Driver.FindElement(By.CssSelector("#application-menu > div:nth-child(3) > ul:nth-child(2) > li:nth-child(2) > a > text")).Click();
+            //Add Skill
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#main-page-container > div.top-header-container > div > div > div.button-container > button")));
+            Driver.FindElement(By.CssSelector("#main-page-container > div.top-header-container > div > div > div.button-container > button")).Click();
+            await Task.Delay(3000);
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#Name")));
+            Random randomGenerator = new Random();
+            int randomInt = randomGenerator.Next(1000000);
+            Driver.FindElement(By.CssSelector("#Name")).SendKeys("SkillAutomation" + randomInt);
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#create")));
+            Driver.FindElement(By.CssSelector("#create")).Click();
+            await Task.Delay(3000);
+            //reopen it
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#search")));
+            Driver.FindElement(By.CssSelector("#search")).SendKeys("SkillAutomation" + randomInt + Keys.Enter);
+            await Task.Delay(3000);
+
+            
+          
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > tbody > tr:nth-child(1) > td:nth-child(1) > div")));
+            Driver.FindElement(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > tbody > tr:nth-child(1) > td:nth-child(1) > div")).Click();
+
+          // wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form > div > div:nth-child(2) > div > div")));
+           //Driver.FindElement(By.CssSelector("#form > div > div:nth-child(2) > div > div")).Click();
+            //reopen and inactive it
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form > div > div:nth-child(2) > div > div")));
+            Driver.FindElement(By.CssSelector("#form > div > div:nth-child(2) > div > div")).Click();
+
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#create")));
+            Driver.FindElement(By.CssSelector("#create")).Click();
+            await Task.Delay(3000);
+
+            //reopen and active it.
+
+            //incluide inactive
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#main-page-container > div.settings-sub-menu.clearfix > div.filter-container.clearfix > div.filter-group.box.inactive")));
+            Driver.FindElement(By.CssSelector("#main-page-container > div.settings-sub-menu.clearfix > div.filter-container.clearfix > div.filter-group.box.inactive")).Click();
+            await Task.Delay(3000);
+
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#search")));
+            Driver.FindElement(By.CssSelector("#search")).SendKeys("SkillAutomation" + randomInt + Keys.Enter);
+            await Task.Delay(3000);
+
+            
+
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > tbody > tr:nth-child(1) > td:nth-child(1) > div")));
+            Driver.FindElement(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > tbody > tr:nth-child(1) > td:nth-child(1) > div")).Click();
+            await Task.Delay(3000);
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form > div > div:nth-child(2) > div > div")));
+            Driver.FindElement(By.CssSelector("#form > div > div:nth-child(2) > div > div")).Click();
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#create")));
+            Driver.FindElement(By.CssSelector("#create")).Click();
+            await Task.Delay(3000);
+
+
+
+
+
+
         }
     }
 }
