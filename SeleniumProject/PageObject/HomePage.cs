@@ -41,7 +41,7 @@ namespace SeleniumProject.PageObject
             
             Driver.Navigate().GoToUrl("https://fieldedgesiteea-staging.azurewebsites.net");
             Driver.Manage().Window.Maximize();
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(30));
             //DotNetSeleniumExtras.WaitHelpers NuGet package needs to be added
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#login-form > div:nth-child(3)")));
 

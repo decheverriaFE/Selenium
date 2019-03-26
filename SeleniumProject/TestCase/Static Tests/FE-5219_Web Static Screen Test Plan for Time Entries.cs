@@ -58,9 +58,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             setStartHHMMTimeentry.SendKeys(DateTime.Now.ToString("hh:mm"));
             
             IWebElement setStartHHMMTimeentry1 = Driver.FindElement(By.CssSelector("#TimeEntryEndTimePicker"));
-            //Driver.FindElement(By.CssSelector("#TimeEntryEndTimePicker")).Clear();
-            setStartHHMMTimeentry1.Clear();
-            setStartHHMMTimeentry1.SendKeys("11:24 AM");
+            
             setStartHHMMTimeentry1.SendKeys(Keys.Tab + Keys.Enter);
             await Task.Delay(3000);
           
