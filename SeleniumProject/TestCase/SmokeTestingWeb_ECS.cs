@@ -35,7 +35,7 @@ namespace SeleniumProject.TestCase
             home.gotoPage();
 
 
-
+            await Task.Delay(1000);
 
 
             //Select Customer Menu ---OK
