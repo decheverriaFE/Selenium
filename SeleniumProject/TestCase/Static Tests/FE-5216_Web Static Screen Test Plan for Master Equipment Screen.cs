@@ -177,10 +177,11 @@ namespace SeleniumProject.TestCase.Static_Tests
 
                 Driver.FindElement(By.CssSelector("li.side-bar-icon:nth-child(1) > a:nth-child(1) > span:nth-child(2)")).Click();
                 await Task.Delay(2000);
+                test.Log(Status.Pass, "FE_5216_Web_Static_Screen_Test_Plan_for_Master_Equipment_Screen - PASSED.");
 
-                
+
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 test.Log(Status.Fail, e.ToString());
                 test.Log(Status.Fail, "FAIL");
@@ -191,10 +192,7 @@ namespace SeleniumProject.TestCase.Static_Tests
         [TearDown]
         public void Closer()
         {
-
             Driver.Quit();
-            /*test.Log(Status.Pass, "FE_5216_Web_Static_Screen_Test_Plan_for_Master_Equipment_Screen - PASSED.");*/
-
         }
     }
 }
