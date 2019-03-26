@@ -184,6 +184,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             catch(Exception e)
             {
                 test.Log(Status.Fail, e.ToString());
+                test.Log(Status.Fail, "FAIL");
                 throw;
             }
         }

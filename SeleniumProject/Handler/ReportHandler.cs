@@ -21,7 +21,7 @@ namespace SeleniumProject.handler
     public class ReportHandler//Reports handler, to be callable
     {
         IWebDriver Driver = new ChromeDriver();
-        public static ExtentReports extent = null;
+        public static ExtentReports extent = new ExtentReports();
         public static ExtentTest test = null;
 
         [OneTimeSetUp] //Start extent reporting instance using htmlreporter
