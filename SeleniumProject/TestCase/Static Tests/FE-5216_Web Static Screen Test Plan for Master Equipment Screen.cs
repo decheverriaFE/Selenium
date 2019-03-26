@@ -23,8 +23,10 @@ namespace SeleniumProject.TestCase.Static_Tests
     public class FE_5216_Web_Static_Screen_Test_Plan_for_Master_Equipment_Screen
     {
         IWebDriver Driver = new ChromeDriver();
-        ExtentReports extent = null;
-        ExtentTest test = null;
+
+        ReportHandler handler = new ReportHandler();
+        /*ExtentReports extent = null;
+        ExtentTest test = null;*/
 
         [OneTimeSetUp] //Start extent reporting instance using htmlreporter
         public void ExtentStart()
@@ -64,7 +66,7 @@ namespace SeleniumProject.TestCase.Static_Tests
                 String comment = (model + "" + "random");
                 var newEquip = (model + " " + randomInt);
                 WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(30));
-                test.Log(Status.Info, "Local Variables created and assigned."); //What status to log
+                test.Log(Status.Info, "Local Variables created and assigned.");
 
 
                 //Settings --> Master Equipment
