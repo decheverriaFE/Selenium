@@ -45,7 +45,7 @@ namespace SeleniumProject.TestCase.Static_Tests
         }
 
         [Test]//Nunit - Anotation to mark a method as a Automated TestCase 
-        public async Task WeeklySchedules()
+        public async Task WeeklySchedule()
         {
 
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(30));
