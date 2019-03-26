@@ -14,6 +14,7 @@ using Keys = OpenQA.Selenium.Keys;
 using NUnit.Framework;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
+using AventStack.ExtentReports.Reporter.Configuration;
 using System.Drawing.Imaging;
 
 
