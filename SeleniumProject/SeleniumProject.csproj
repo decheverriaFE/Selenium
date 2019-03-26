@@ -100,6 +100,7 @@
     <Compile Include="PageObject\HomePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCase\Static Tests\FE-5212_Web Static Screen Test Plan for Task Settings Screen1.cs" />
+    <Compile Include="TestCase\Static Tests\FE-5213_Web Static Screen Test Plan for Categories Screen1.cs" />
     <Compile Include="TestCase\Static Tests\FE-5216_Web Static Screen Test Plan for Master Equipment Screen.cs" />
     <Compile Include="TestCase\Static Tests\FE-5219_Web Static Screen Test Plan for Time Entries.cs" />
     <Compile Include="TestCase\Static Tests\FE-5221_Web Static Screen Test Plan Payment Processing.cs" />
