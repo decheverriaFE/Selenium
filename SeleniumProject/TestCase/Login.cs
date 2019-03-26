@@ -4,7 +4,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
-using SeleniumProject.Handler;
+using SeleniumProject.handler;
 using SeleniumProject.PageObject;
 using System;
 using System.Collections.Generic;

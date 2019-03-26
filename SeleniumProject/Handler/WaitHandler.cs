@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SeleniumWaitHelper = SeleniumExtras.WaitHelpers;
 
-namespace SeleniumProject.Handler
+namespace SeleniumProject.handler
 {
     class WaitHandler
     {

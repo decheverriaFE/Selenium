@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
-using SeleniumProject.Handler;
+using SeleniumProject.handler;
 using SeleniumProject.PageObject;
 using System;
 using System.Collections.Generic;
@@ -25,15 +25,15 @@ namespace SeleniumProject.TestCase.Static_Tests
         IWebDriver Driver = new ChromeDriver();
 
         ReportHandler handler = new ReportHandler();
+        handler.ExtentStart();
+
         /*ExtentReports extent = null;
         ExtentTest test = null;*/
 
         [OneTimeSetUp] //Start extent reporting instance using htmlreporter
         public void ExtentStart()
         {
-            extent = new ExtentReports(); // Create object for extent reports
-            var htmlReporter = new ExtentHtmlReporter(@"C:\Users\rdasilva\Source\Repos\decheverriaFE\Selenium\SeleniumProject\ExtentReport\"); // needs html endpoint, storing on extentreport folder
-            extent.AttachReporter(htmlReporter); //takes one argument which is the htmlreport filepath
+            ReportHandler.ExtentStart();
         }
 
         [OneTimeTearDown]

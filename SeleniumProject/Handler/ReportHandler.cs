@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
-using SeleniumProject.Handler;
+using SeleniumProject.handler;
 using SeleniumProject.PageObject;
 using System;
 using System.Collections.Generic;
@@ -15,18 +15,19 @@ using NUnit.Framework;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 
-namespace SeleniumProject.Handler
+namespace SeleniumProject.handler
 {
     [TestFixture]
-    public class ReportHandler //Reports handler, to be callable
+    public class ReportHandler//Reports handler, to be callable
     {
-        IWebDriver Driver = new ChromeDriver();
-        ExtentReports extent = null;
-        ExtentTest test = null;
-
+        public static void ReportHandlerTool()
+        {
+            IWebDriver Driver = new ChromeDriver();
+            public static ExtentReports extent = null;
+        public static ExtentTest test = null;
 
         [OneTimeSetUp] //Start extent reporting instance using htmlreporter
-        public void ExtentStart()
+        public static void ExtentStart()
         {
             extent = new ExtentReports(); // Create object for extent reports
             var htmlReporter = new ExtentHtmlReporter(@"C:\Users\rdasilva\Source\Repos\decheverriaFE\Selenium\SeleniumProject\ExtentReport\"); // needs html endpoint, storing on extentreport folder
@@ -38,7 +39,10 @@ namespace SeleniumProject.Handler
         {
             extent.Flush();
         }
+    }
 
     }
+
 }
+
 
