@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SeleniumWaitHelper = SeleniumExtras.WaitHelpers;
 
-namespace SeleniumProject.TestCase
+namespace SeleniumProject.TestCase.Static_Tests
 {
     class FE_7559__Static_Screen_Test_Plan_for_Business_Unit_Settings
     {

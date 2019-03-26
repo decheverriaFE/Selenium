@@ -99,6 +99,7 @@
     <Compile Include="Handler\WaitHandler.cs" />
     <Compile Include="PageObject\HomePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCase\Static Tests\FE-5204_Web Static Screen Test Plan for Weekly Schedule Screen.cs" />
     <Compile Include="TestCase\Static Tests\FE-5212_Web Static Screen Test Plan for Task Settings Screen1.cs" />
     <Compile Include="TestCase\Static Tests\FE-5213_Web Static Screen Test Plan for Categories Screen1.cs" />
     <Compile Include="TestCase\Static Tests\FE-5214_Web Static Screen Test Plan for Appointment Block Configuration Screen1.cs" />

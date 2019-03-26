@@ -10,9 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using SeleniumWaitHelper = SeleniumExtras.WaitHelpers;
 
-namespace SeleniumProject.TestCase
+namespace SeleniumProject.TestCase.Static_Tests
 {
-    class Web_Static_Screen_Test_Plan_for_Customer_Type_Screen
+    class FE_5220__Web_Static_Screen_Test_Plan_for_Customer_Type_Screen
     {
         //Selenium Driver
         protected IWebDriver Driver;

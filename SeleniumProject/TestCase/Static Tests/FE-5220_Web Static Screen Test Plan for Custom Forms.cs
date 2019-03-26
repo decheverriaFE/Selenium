@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SeleniumWaitHelper = SeleniumExtras.WaitHelpers;
 
-namespace SeleniumProject.TestCase
+namespace SeleniumProject.TestCase.Static_Tests
 {
     class FE_5220__Web_Static_Screen_Test_Plan_for_Custom_Forms
     {
