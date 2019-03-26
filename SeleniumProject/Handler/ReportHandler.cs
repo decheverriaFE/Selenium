@@ -25,7 +25,7 @@ namespace SeleniumProject.handler
         public static ExtentTest test = null;
 
         [OneTimeSetUp] //Start extent reporting instance using htmlreporter
-        public static void Start()
+        public static void ExtentStart()
         {
             extent = new ExtentReports(); // Create object for extent reports
             var htmlReporter = new ExtentHtmlReporter(@"C:\Users\rdasilva\Source\Repos\decheverriaFE\Selenium\SeleniumProject\ExtentReport\"); // needs html endpoint, storing on extentreport folder
@@ -33,7 +33,7 @@ namespace SeleniumProject.handler
         }
 
         [OneTimeTearDown]
-        public static void Close()
+        public static void ExtentClose()
         {
             extent.Flush();
         }
