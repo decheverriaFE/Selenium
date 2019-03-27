@@ -33,7 +33,7 @@ namespace SeleniumProject.TestCase.Static_Tests
         public void ExtentStart()
         {
             extent = new ExtentReports(); // Create object for extent reports
-            var htmlReporter = new ExtentHtmlReporter(@"C:\Users\rdasilva\Source\Repos\decheverriaFE\Selenium\SeleniumProject\ExtentReport\"); // needs html endpoint, storing on extentreport folder
+            ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(@"C:\Users\rdasilva\Source\Repos\decheverriaFE\Selenium\SeleniumProject\ExtentReport\"); // needs html endpoint, storing on extentreport folder
             extent.AttachReporter(htmlReporter); 
         }
 
