@@ -99,21 +99,9 @@ namespace SeleniumProject.TestCase
 
             Customer_companyname.SendKeys("Customer" + randomInt);
             await Task.Delay(3000);
-            //Close Popups WalkMe and wait 30s
-            
-            //DotNetSeleniumExtras.WaitHelpers NuGet package needs to be added
-           // wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
-            //IWebElement CloseWalkme4 = Driver.FindElement(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button"));
-           //CloseWalkme4.Click();
-            //await Task.Delay(2000);
-            //Close Popups WalkMe and wait 30s
            
-            //DotNetSeleniumExtras.WaitHelpers NuGet package needs to be added
-           // wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button")));
-            //IWebElement CloseWalkme5 = Driver.FindElement(By.CssSelector("#wm-shoutout-144685 > div.wm-close-button.walkme-x-button"));
-            //CloseWalkme5.Click();
-            //await Task.Delay(2000);
-            //Enter random value for address
+            
+        
             IWebElement Customer_address = Driver.FindElement(By.CssSelector("#Address1"));
             Customer_address.Click();
 
