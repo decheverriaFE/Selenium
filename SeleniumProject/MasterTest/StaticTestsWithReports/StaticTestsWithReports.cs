@@ -25,7 +25,7 @@ namespace SeleniumProject.MasterTest.StaticTestsWithReports
     {
         IWebDriver Driver = new ChromeDriver();
         ExtentReports extent = null;
-        ExtentTest test = null;
+        //ExtentTest test = null;
         
 
         [OneTimeSetUp] //Start extent reporting instance using htmlreporter
