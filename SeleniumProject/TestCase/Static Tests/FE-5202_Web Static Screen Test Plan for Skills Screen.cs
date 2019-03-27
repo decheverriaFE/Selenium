@@ -82,7 +82,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             //incluide inactive
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#main-page-container > div.settings-sub-menu.clearfix > div.filter-container.clearfix > div.filter-group.box.inactive")));
             Driver.FindElement(By.CssSelector("#main-page-container > div.settings-sub-menu.clearfix > div.filter-container.clearfix > div.filter-group.box.inactive")).Click();
-            await Task.Delay(3000);
+            await Task.Delay(3500);
 
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#search")));
             Driver.FindElement(By.CssSelector("#search")).SendKeys("SkillAutomation" + randomInt + Keys.Enter);

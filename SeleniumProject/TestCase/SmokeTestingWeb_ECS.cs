@@ -42,7 +42,7 @@ namespace SeleniumProject.TestCase
             IWebElement ClickCustomer = Driver.FindElement(By.CssSelector("li.side-bar-icon:nth-child(4) > a:nth-child(1) > span:nth-child(2)"));
             ClickCustomer.Click();
 
-            WebDriverWait wait3 = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            WebDriverWait wait3 = new WebDriverWait(Driver, TimeSpan.FromSeconds(30));
 
            /* wait3.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.Id("search")));
             IWebElement SearchCustomer = Driver.FindElement(By.Id("search"));
