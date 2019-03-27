@@ -100,6 +100,7 @@
     <Compile Include="MasterTest\StaticTestsWithReports\StaticTestsWithReports.cs" />
     <Compile Include="PageObject\HomePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCase\Static Tests\FE-4535_Web Static Screen Test Plan for Customer Screenn.cs" />
     <Compile Include="TestCase\Static Tests\FE-5135_Web Static Screen Test Plan for Invoice Forms.cs" />
     <Compile Include="TestCase\Static Tests\FE-5196_Web Static Screen Test Plan for Call Lead Source Screen.cs" />
     <Compile Include="TestCase\Static Tests\FE-5202_Web Static Screen Test Plan for Skills Screen.cs" />

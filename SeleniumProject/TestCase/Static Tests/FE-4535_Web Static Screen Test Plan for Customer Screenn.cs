@@ -19,7 +19,7 @@ using System.Drawing.Imaging;
 
 namespace SeleniumProject.TestCase.Static_Tests
 {
-    class FE_4535_Web_Static_Screen_Test_Plan_for_Customer_Screen
+    class FE_4535_Web_Static_Screen_Test_Plan_for_Customer_Screenn
     {
         IWebDriver Driver = new ChromeDriver();
 
@@ -109,7 +109,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("#State")).SendKeys("FL");
             Driver.FindElement(By.CssSelector("#Zip")).SendKeys("33919");
 
-           
+
 
             //Phone Label-Number --> Email label-Address. Confirm Primary is auto selected
             Driver.FindElement(By.CssSelector("#PhoneLabel"));
