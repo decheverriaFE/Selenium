@@ -235,6 +235,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             //Fill in fields and completely verify everything.
             //Begin to verify fields (active checkbox)
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".form-horizontal")));
+
             var checkActive1 = Driver.FindElement(By.CssSelector("div.group-field-section-container:nth-child(22) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)"));
 
             if (!checkActive.Selected)
