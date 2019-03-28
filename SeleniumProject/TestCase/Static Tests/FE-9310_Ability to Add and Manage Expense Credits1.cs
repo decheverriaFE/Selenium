@@ -62,22 +62,23 @@ namespace SeleniumProject.TestCase
             await Task.Delay(2000);
             Driver.FindElement(By.CssSelector("body > span > span > span.select2-search.select2-search--dropdown > input")).SendKeys(Keys.Enter);
 
-
-            IWebElement CheckboxAddExpense = Driver.FindElement(By.Id("SetExpenseAddNonBillable"));
-            if (!CheckboxAddExpense.Selected)
+            if (!Driver.FindElement(By.Id("SetExpenseAddNonBillable")).Selected)
             {
-                CheckboxAddExpense.Click();
+                Driver.FindElement(By.Id("SetExpenseAddNonBillable")).Click();
+                Assert.Pass("Check!");
                 Driver.FindElement(By.Id("create")).Click();
             }
+
             else
             {
                 Driver.FindElement(By.Id("create")).Click();
             }
- //Create a work order in the web and assign it to a technician. 
 
-            
-            //DotNetSeleniumExtras.WaitHelpers NuGet package needs to be added
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#sidebar-wrapper > ul > li:nth-child(4) > a")));
+
+        
+       
+
+        wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#sidebar-wrapper > ul > li:nth-child(4) > a")));
 
             
 
@@ -302,7 +303,7 @@ namespace SeleniumProject.TestCase
             //}*/
 
 
-
+            
 
 
 
