@@ -59,7 +59,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > thead > tr > th:nth-child(5) > span:nth-child(1)"), "Status"));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > thead > tr > th:nth-child(6) > span:nth-child(1)"), "Expiration Date"));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > thead > tr > th:nth-child(7) > span:nth-child(1)"), "Amount"));
-            Assert.Pass("Columns validated");
+            //Assert.Pass("Columns validated");
             await Task.Delay(2000);
 
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#main-page-container > div.top-header-container > div > div > div.button-container > button > span:nth-child(2)")));
@@ -75,16 +75,7 @@ namespace SeleniumProject.TestCase.Static_Tests
            
             await Task.Delay(2000);
 
-            //validate FilterLabel
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#main-page-container > div.with-units.settings-sub-menu.clearfix > div.filter-container.clearfix > div.filter-group.box.selected > div.group-name"), "all"));
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#main-page-container > div.with-units.settings-sub-menu.clearfix > div.filter-container.clearfix > div:nth-child(4) > div.group-name"), "recent"));
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#main-page-container > div.with-units.settings-sub-menu.clearfix > div.filter-container.clearfix > div:nth-child(6) > div.group-name"), "expiring"));
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#main-page-container > div.with-units.settings-sub-menu.clearfix > div.filter-container.clearfix > div:nth-child(8) > div.group-name"), "accepted"));
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#main-page-container > div.with-units.settings-sub-menu.clearfix > div.filter-container.clearfix > div:nth-child(9) > div.secondary-filter.box.date-filter > div:nth-child(1)"), "select date"));
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#main-page-container > div.with-units.settings-sub-menu.clearfix > div.filter-container.clearfix > div:nth-child(4) > div.group-name"), "recent"));
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#main-page-container > div.with-units.settings-sub-menu.clearfix > div.filter-container.clearfix > div:nth-child(9) > div.secondary-filter.box.short.short > div:nth-child(1)"), "amount"));
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.TextToBePresentInElementLocated(By.CssSelector("#main-page-container > div.with-units.settings-sub-menu.clearfix > div.filter-container.clearfix > div:nth-child(9) > div.secondary-filter.box.long > div:nth-child(1)"), "sales person"));
-            Assert.Pass("Label Filters validated");
+            
 
 
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > thead > tr > th:nth-child(1)")));
@@ -106,6 +97,21 @@ namespace SeleniumProject.TestCase.Static_Tests
 
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > thead > tr > th:nth-child(3)")));
             Driver.FindElement(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > thead > tr > th:nth-child(3)")).Click();
+
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#search")));
+            Driver.FindElement(By.CssSelector("#search")).Click();
+            Driver.FindElement(By.CssSelector("#search")).SendKeys("3531 SE 22nd Place - Cape Coral FL 33904" + Keys.Enter);
+            Driver.FindElement(By.CssSelector("#search")).Clear();
+            await Task.Delay(2000);
+            Driver.FindElement(By.CssSelector("#search")).SendKeys("Aberdeen" + Keys.Enter);
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > tbody > tr > td:nth-child(1) > div")));
+            Driver.FindElement(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > tbody > tr > td:nth-child(1) > div")).Click();
+
+        }
+
+        public void Closer()
+        {
+            Driver.Quit();
         }
     }
 }
