@@ -50,16 +50,17 @@ namespace SeleniumProject.TestCase.Static_Tests
 
             //Begin to verify fields (active checkbox)
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".form-horizontal")));
-            var checkActive = Driver.FindElement(By.CssSelector("div.group-field-section-container:nth-child(22) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)"));
+            bool myElement = Driver.FindElement(By.Id("active")).Selected;
 
-            if (!checkActive.Selected)
+
+            if (myElement == true)
             {
                 Console.WriteLine("Active checkbox default is checked on, PASS");
             }
             else
             {
                 Assert.Fail("Active checkbox default is checked off, FAIL");
-                Driver.FindElement(By.CssSelector("")).Click();
+                
             }
 
             //Bill from office - Opt-out of call
@@ -141,7 +142,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("#select2-flatRateItem-container"));
             Driver.FindElement(By.CssSelector("#select2-taxCode-container"));
 
-            Driver.FindElement(By.CssSelector("#salesPersonDivContainer > div:nth-child(2)")).Click(); //fail
+            Driver.FindElement(By.CssSelector("#salesPersonDivContainer > div:nth-child(2)")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".select2-search__field")));
             Driver.FindElement(By.CssSelector(".select2-search__field")).SendKeys("Field T.");
             await Task.Delay(1000);
@@ -177,18 +178,20 @@ namespace SeleniumProject.TestCase.Static_Tests
             await Task.Delay(1000);
 
             //Change address 2 and save --> leave and come back in to confirm changes
-            Driver.FindElement(By.CssSelector("#Address2")).SendKeys(Keys.Clear + "Suite 9");
+            Driver.FindElement(By.CssSelector("#Address2")).Click();
+            Driver.FindElement(By.CssSelector("#Address2")).Clear();
+            Driver.FindElement(By.CssSelector("#Address2")).SendKeys("Suite 98");
             String newAddress = Driver.FindElement(By.CssSelector("#Address2")).GetAttribute("value");
-            Driver.FindElement(By.CssSelector("#create")).Click();
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.button-container:nth-child(4) > button:nth-child(2)")));
-            Driver.FindElement(By.CssSelector("div.button-container:nth-child(4) > button:nth-child(2)")).Click();
-            await Task.Delay(3000);
+            
 
             //Verify changes were made.
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.group-field-section-container:nth-child(22)")));
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#Address2")));
             if (newAddress == Driver.FindElement(By.CssSelector("#Address2")).GetAttribute("value"))
             {
-                Driver.FindElement(By.CssSelector("#create"));
+                Driver.FindElement(By.CssSelector("#create")).Click();
+                wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("body > div.bootbox.modal.fade.custom-bootbox.normal.in > div > div > div.modal-footer")));
+                await Task.Delay(1000);
+                Driver.FindElement(By.CssSelector("body > div.bootbox.modal.fade.custom-bootbox.normal.in > div > div > div.modal-footer > button.btn.success-btn.custom-btn")).Click();
                 Console.WriteLine("Pass");
             }
             else
@@ -202,20 +205,34 @@ namespace SeleniumProject.TestCase.Static_Tests
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#details-list-container > div:nth-child(2) > button:nth-child(1)")));
             Driver.FindElement(By.CssSelector("#details-list-container > div:nth-child(2) > button:nth-child(1)")).Click();
             await Task.Delay(1000);
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#ExistingCustomerMainInfo")));
-            Driver.FindElement(By.CssSelector("#ExistingCustomerMainInfo")).Click();
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#ExistingCustomerMainInfo > div.header")));
+            Driver.FindElement(By.CssSelector("#ExistingCustomerMainInfo > div.header > a")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementExists(By.CssSelector("#EditCustomerOverlay > div:nth-child(1)")));
 
             //Edit Address2 again, verify changes outside of the quick edit popup.
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementExists(By.CssSelector("#Address2")));
-            Driver.FindElement(By.CssSelector("#Address2")).SendKeys(Keys.Clear + "Suite 88");
+            Driver.FindElement(By.CssSelector("#Address2")).Clear();
+            Driver.FindElement(By.CssSelector("#Address2")).SendKeys("Suite 88");
+            String newAddressAfter = Driver.FindElement(By.CssSelector("#Address2")).GetAttribute("value");
             Driver.FindElement(By.CssSelector("div.button-container:nth-child(4) > button:nth-child(1)")).Click();
+            await Task.Delay(2000);
+            Driver.FindElement(By.CssSelector("#successMessage > div.button-container.clearfix > button.custom-btn.success-btn")).Click();
             await Task.Delay(1000);
-            String newAddressAfter = Driver.FindElement(By.CssSelector("#ExistingCustomerMainInfo > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > text:nth-child(1)")).GetAttribute("value");
 
-            if (newAddressAfter == Driver.FindElement(By.CssSelector("#ExistingCustomerMainInfo > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > text:nth-child(1)")).GetAttribute("value"))
+            //Go back into customer and verify updated address from quick edit popup.
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#label > div")));
+            Driver.FindElement(By.CssSelector("#label > div > div.active > a")).Click();
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#label > div > div.button-container")));
+            Driver.FindElement(By.CssSelector("#label > div > div.button-container > button:nth-child(2)")).Click();
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.group-field-section-container:nth-child(22)")));
+            String popUpAddress = Driver.FindElement(By.CssSelector("#Address2")).GetAttribute("value");
+
+            if (newAddressAfter == popUpAddress)
             {
-                Driver.FindElement(By.CssSelector(".active > a:nth-child(2)")).Click();
+                Driver.FindElement(By.CssSelector("#create")).Click();
+                wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".modal-footer")));
+                Driver.FindElement(By.CssSelector("button.btn:nth-child(1)")).Click();
+                await Task.Delay(1000);
             }
             else
             {
@@ -229,16 +246,18 @@ namespace SeleniumProject.TestCase.Static_Tests
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".with-units")));
             Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(7)")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.setting-form:nth-child(3)")));
-            Driver.FindElement(By.CssSelector(".no-margin"));
-            await Task.Delay(3000);
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".select2-search__field")));
+            Driver.FindElement(By.CssSelector(".select2-search__field")).Click();
+            Driver.FindElement(By.CssSelector(".select2-search__field")).SendKeys(Keys.Tab + Keys.Tab + Keys.Enter);
+            await Task.Delay(1000);
+
 
             //Fill in fields and completely verify everything.
             //Begin to verify fields (active checkbox)
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".form-horizontal")));
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#add-new-customer > div:nth-child(21)")));
+            var checkActive1 = Driver.FindElement(By.CssSelector("#active"));
 
-            var checkActive1 = Driver.FindElement(By.CssSelector("div.group-field-section-container:nth-child(22) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)"));
-
-            if (!checkActive.Selected)
+            if (!checkActive1.Selected)
             {
                 Console.WriteLine("Active checkbox default is checked on, PASS");
             }
@@ -249,14 +268,14 @@ namespace SeleniumProject.TestCase.Static_Tests
             }
 
             //Bill from office - Opt-out of call
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.group-field-section-container:nth-child(22) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > label:nth-child(3)")));
-            Driver.FindElement(By.CssSelector("div.group-field-section-container:nth-child(22) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > label:nth-child(3)")).Click();
-            Driver.FindElement(By.CssSelector("div.group-field-section-container:nth-child(22) > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > label:nth-child(2)")).Click();
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.group-field-section-container:nth-child(21) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)")));
+            Driver.FindElement(By.CssSelector("div.group-field-section-container:nth-child(21) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)")).Click();
+            Driver.FindElement(By.CssSelector("div.group-field-section-container:nth-child(21) > div:nth-child(2) > div:nth-child(3) > div:nth-child(2)")).Click();
 
             //Sub-customer of / Customer Type searches / Customer Acquired through. verify billing address is first auto-selected.
 
             var checkBillAdd1 = Driver.FindElement(By.CssSelector(("div.no-label:nth-child(1) > div:nth-child(1)")));
-            if (!checkBillAdd.Selected)
+            if (!checkBillAdd1.Selected)
             {
                 Console.WriteLine("PASS - Billing address checkbox auto selected.");
             }
