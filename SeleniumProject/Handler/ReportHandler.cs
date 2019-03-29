@@ -15,17 +15,19 @@ using NUnit.Framework;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 
+
 namespace SeleniumProject.handler
 {
-    [TestFixture]
+    
     public class ReportHandler//Reports handler, to be callable
     {
+        
         IWebDriver Driver = new ChromeDriver();
         public static ExtentReports extent = new ExtentReports();
         public static ExtentTest test = null;
 
-        [OneTimeSetUp] //Start extent reporting instance using htmlreporter
-        public static void ExtentStart()
+        //Start extent reporting instance using htmlreporter
+        public static void generateReport(List xmlSuites, List suites, String outputDirectory)
         {
             extent = new ExtentReports(); // Create object for extent reports
             var htmlReporter = new ExtentHtmlReporter(@"C:\Users\rdasilva\Source\Repos\decheverriaFE\Selenium\SeleniumProject\ExtentReport\"); // needs html endpoint, storing on extentreport folder

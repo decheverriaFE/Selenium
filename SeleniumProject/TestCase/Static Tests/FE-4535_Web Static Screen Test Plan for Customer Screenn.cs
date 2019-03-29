@@ -37,8 +37,10 @@ namespace SeleniumProject.TestCase.Static_Tests
         {
             //Declare local variables
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(30));
+            WebDriverWait waitPopUp = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
             Random randomGenerator = new Random();
             int randomInt = randomGenerator.Next(1000000);
+            int randomInt2 = randomGenerator.Next(10000000);
 
             //Click on customers --> Add Customer
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("li.side-bar-icon:nth-child(4) > a:nth-child(1) > span:nth-child(2)")));
@@ -50,10 +52,10 @@ namespace SeleniumProject.TestCase.Static_Tests
 
             //Begin to verify fields (active checkbox)
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".form-horizontal")));
-            bool myElement = Driver.FindElement(By.Id("active")).Selected;
+            bool active = Driver.FindElement(By.Id("active")).Selected;
 
 
-            if (myElement == true)
+            if (active == true)
             {
                 Console.WriteLine("Active checkbox default is checked on, PASS");
             }
@@ -64,14 +66,10 @@ namespace SeleniumProject.TestCase.Static_Tests
             }
 
             //Bill from office - Opt-out of call
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.group-field-section-container:nth-child(22) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > label:nth-child(3)")));
-            Driver.FindElement(By.CssSelector("div.group-field-section-container:nth-child(22) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > label:nth-child(3)")).Click();
-            Driver.FindElement(By.CssSelector("div.group-field-section-container:nth-child(22) > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > label:nth-child(2)")).Click();
-
             //Sub-customer of / Customer Type searches / Customer Acquired through. verify billing address is first auto-selected.
+            bool checkBillAdd = Driver.FindElement(By.CssSelector(("div.no-label:nth-child(1) > div:nth-child(1)"))).Selected;
 
-            var checkBillAdd = Driver.FindElement(By.CssSelector(("div.no-label:nth-child(1) > div:nth-child(1)")));
-            if (!checkBillAdd.Selected)
+            if (!checkBillAdd == true)
             {
                 Console.WriteLine("PASS - Billing address checkbox auto selected.");
             }
@@ -79,6 +77,10 @@ namespace SeleniumProject.TestCase.Static_Tests
             {
                 Assert.Fail("FAIL - Billing Address checkbox not auto selected.");
             }
+
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.group-field-section-container:nth-child(22) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > label:nth-child(3)")));
+            Driver.FindElement(By.CssSelector("div.group-field-section-container:nth-child(22) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > label:nth-child(3)")).Click();
+            Driver.FindElement(By.CssSelector("div.group-field-section-container:nth-child(22) > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > label:nth-child(2)")).Click();
 
             Driver.FindElement(By.CssSelector("#select2-parentEntityID-container")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".select2-search__field")));
@@ -119,9 +121,9 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("div.group-field-container:nth-child(1) > div:nth-child(4) > div:nth-child(2) > input:nth-child(1)"))
                 .SendKeys(randomInt + "@gmail.com");
 
-            var primaryCheck = Driver.FindElement(By.CssSelector("div.group-field-container:nth-child(1) > div:nth-child(8) > div:nth-child(1)"));
+            bool primaryCheck = Driver.FindElement(By.CssSelector("div.field-container:nth-child(8) > div:nth-child(1)")).Selected;
 
-            if (!primaryCheck.Selected)
+            if (!primaryCheck == true)
             {
                 Console.WriteLine("PASS - Primary Email checkbox auto selected.");
             }
@@ -217,7 +219,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("div.button-container:nth-child(4) > button:nth-child(1)")).Click();
             await Task.Delay(2000);
             Driver.FindElement(By.CssSelector("#successMessage > div.button-container.clearfix > button.custom-btn.success-btn")).Click();
-            await Task.Delay(1000);
+            await Task.Delay(4000);
 
             //Go back into customer and verify updated address from quick edit popup.
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#label > div")));
@@ -247,17 +249,17 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(7)")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.setting-form:nth-child(3)")));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".select2-search__field")));
-            Driver.FindElement(By.CssSelector(".select2-search__field")).Click();
-            Driver.FindElement(By.CssSelector(".select2-search__field")).SendKeys(Keys.Tab + Keys.Tab + Keys.Enter);
+            await Task.Delay(3000);
+            Driver.FindElement(By.CssSelector("#new-work-order-id > div.form-formatted > div.setting-form.scrollable.form-horizontal.no-margin-top > div:nth-child(2) > div:nth-child(2) > div > button")).Click();          
             await Task.Delay(1000);
 
 
             //Fill in fields and completely verify everything.
             //Begin to verify fields (active checkbox)
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#add-new-customer > div:nth-child(21)")));
-            var checkActive1 = Driver.FindElement(By.CssSelector("#active"));
+            bool checkActive1 = Driver.FindElement(By.CssSelector("#active")).Selected;
 
-            if (!checkActive1.Selected)
+            if (checkActive1 == true)
             {
                 Console.WriteLine("Active checkbox default is checked on, PASS");
             }
@@ -267,15 +269,10 @@ namespace SeleniumProject.TestCase.Static_Tests
                 Driver.FindElement(By.CssSelector("")).Click();
             }
 
-            //Bill from office - Opt-out of call
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.group-field-section-container:nth-child(21) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)")));
-            Driver.FindElement(By.CssSelector("div.group-field-section-container:nth-child(21) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)")).Click();
-            Driver.FindElement(By.CssSelector("div.group-field-section-container:nth-child(21) > div:nth-child(2) > div:nth-child(3) > div:nth-child(2)")).Click();
-
             //Sub-customer of / Customer Type searches / Customer Acquired through. verify billing address is first auto-selected.
 
-            var checkBillAdd1 = Driver.FindElement(By.CssSelector(("div.no-label:nth-child(1) > div:nth-child(1)")));
-            if (!checkBillAdd1.Selected)
+            bool checkBillAdd1 = Driver.FindElement(By.CssSelector(("div.no-label:nth-child(1) > div:nth-child(1)"))).Selected;
+            if (!checkBillAdd1 == true)
             {
                 Console.WriteLine("PASS - Billing address checkbox auto selected.");
             }
@@ -284,10 +281,15 @@ namespace SeleniumProject.TestCase.Static_Tests
                 Assert.Fail("FAIL - Billing Address checkbox not auto selected.");
             }
 
+            //Bill from office - Opt-out of call
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.group-field-section-container:nth-child(21) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)")));
+            Driver.FindElement(By.CssSelector("div.group-field-section-container:nth-child(21) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)")).Click();
+            Driver.FindElement(By.CssSelector("div.group-field-section-container:nth-child(21) > div:nth-child(2) > div:nth-child(3) > div:nth-child(2)")).Click();
+
             Driver.FindElement(By.CssSelector("#select2-parentEntityID-container")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".select2-search__field")));
             Driver.FindElement(By.CssSelector(".select2-search__field")).SendKeys("Davis");
-            await Task.Delay(4000);
+            await Task.Delay(3000);
             Driver.FindElement(By.CssSelector(".select2-search__field")).SendKeys(Keys.Enter);
 
 
@@ -306,13 +308,13 @@ namespace SeleniumProject.TestCase.Static_Tests
 
             //First-Last-Company-Display Names add --> Address 1/Address 2 City/state/zip
             Driver.FindElement(By.CssSelector("#FirstName")).SendKeys("Automation");
-            Driver.FindElement(By.CssSelector("#LastName")).SendKeys("Test" + " " + randomInt);
+            Driver.FindElement(By.CssSelector("#LastName")).SendKeys("Test" + " " + randomInt2);
             Driver.FindElement(By.CssSelector("#CompanyName")).SendKeys("Umbrella Corporation");
-            Driver.FindElement(By.CssSelector("#Address1")).SendKeys(randomInt + " " + "Test Road");
+            Driver.FindElement(By.CssSelector("#Address1")).SendKeys(randomInt2 + " " + "Test Road");
             Driver.FindElement(By.CssSelector("#Address2")).SendKeys("Suite 343");
             Driver.FindElement(By.CssSelector("#City")).SendKeys("Fort Myers");
-            Driver.FindElement(By.CssSelector("#State")).SendKeys("FL");
-            Driver.FindElement(By.CssSelector("#Zip")).SendKeys("33919");
+            Driver.FindElement(By.CssSelector("#City")).SendKeys(Keys.Tab + "FL");
+            Driver.FindElement(By.CssSelector("#City")).SendKeys(Keys.Tab + Keys.Tab + "33919");
 
 
 
@@ -323,9 +325,9 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("div.group-field-container:nth-child(1) > div:nth-child(4) > div:nth-child(2) > input:nth-child(1)"))
                 .SendKeys(randomInt + "@gmail.com");
 
-            var primaryCheck1 = Driver.FindElement(By.CssSelector("div.group-field-container:nth-child(1) > div:nth-child(8) > div:nth-child(1)"));
+            bool primaryCheck1 = Driver.FindElement(By.CssSelector("div.group-field-container:nth-child(1) > div:nth-child(8) > div:nth-child(1)")).Selected;
 
-            if (!primaryCheck.Selected)
+            if (!primaryCheck1 == true)
             {
                 Console.WriteLine("PASS - Primary Email checkbox auto selected.");
             }
@@ -335,51 +337,51 @@ namespace SeleniumProject.TestCase.Static_Tests
             }
 
             //Add additional contact button --> Contact on primary (check boxes)
-            Driver.FindElement(By.CssSelector(".default-btn")).Click();
-            Driver.FindElement(By.CssSelector(".contact-on > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > label:nth-child(3)")).Click();
-            Driver.FindElement(By.CssSelector("div.no-label:nth-child(2) > div:nth-child(1) > label:nth-child(3)")).Click();
-            Driver.FindElement(By.CssSelector("div.no-label:nth-child(3) > div:nth-child(1) > label:nth-child(3)")).Click();
+            Driver.FindElement(By.CssSelector("#ContactInfo > div.group-field-section-container.clearfix > div > button")).Click();
+            Driver.FindElement(By.CssSelector("#phone")).Click();
+            Driver.FindElement(By.CssSelector("#mobile")).Click();
+            Driver.FindElement(By.CssSelector("#email")).Click();
 
             //Pinned Notes --> Business Profile
-            Driver.FindElement(By.CssSelector("#Information")).SendKeys("Pinned Note #: " + randomInt + "Test");
-            Driver.FindElement(By.CssSelector("div.group-field-container:nth-child(28) > div:nth-child(1) > div:nth-child(1) > label:nth-child(3)")).Click();
-            Driver.FindElement(By.CssSelector("#select2-flatRateItem-container"));
-            Driver.FindElement(By.CssSelector("#select2-taxCode-container"));
-
-            Driver.FindElement(By.CssSelector("#salesPersonDivContainer > div:nth-child(2)")).Click(); //fail
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".select2-search__field")));
-            Driver.FindElement(By.CssSelector(".select2-search__field")).SendKeys("Field T.");
-            await Task.Delay(1000);
-            Driver.FindElement(By.CssSelector(".select2-search__field")).SendKeys(Keys.Enter);
-
-            //Store Displayname for future testing.
-            String customer1 = Driver.FindElement(By.CssSelector("#Name")).GetAttribute("value");
+            Driver.FindElement(By.CssSelector("#Information")).SendKeys("Pinned Note #: " + randomInt + " Test");
+            Driver.FindElement(By.CssSelector("#requirePO")).Click();
 
             //Create customer button.
-            Driver.FindElement(By.CssSelector("#create")).Click();
+            Driver.FindElement(By.CssSelector("div.form-formatted:nth-child(2) > div:nth-child(4) > div:nth-child(1) > button:nth-child(2)")).Click();
             await Task.Delay(2000);
 
             //Handle Address Verification popup
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".modal-footer")));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("button.btn:nth-child(1)")));
             Driver.FindElement(By.CssSelector("button.btn:nth-child(1)")).Click();
-            await Task.Delay(2000);
+
+            //Verify record does not already exist
+            bool popUp = Driver.FindElement(By.CssSelector("#main-page-container > feedback-message:nth-child(5) > div:nth-child(1)")).Selected;
+
+            if(!popUp == true)
+            {
+                Console.WriteLine("No popup.");
+            }
+            else
+            {
+                Assert.Fail("FAIL -- Record already exists, check variables assigned to displayName.");
+            }
 
             //Create new work-order with newest customer
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#new-work-order-id > div:nth-child(1)")));
-            Driver.FindElement(By.CssSelector("#select2-lp1f-container > span:nth-child(1)")).Click();
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#select2-lp1f-result-vltw-e3208922-df7d-44c6-bc50-ba85d619cf25")));
-            Driver.FindElement(By.CssSelector("#select2-lp1f-result-vltw-e3208922-df7d-44c6-bc50-ba85d619cf25")).SendKeys(Keys.ArrowDown + Keys.Enter);
-            Driver.FindElement(By.CssSelector("#select2-taskCombobox-container")).Click();
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".select2-search__field")));
+            Driver.FindElement(By.CssSelector("span.select2:nth-child(3) > span:nth-child(1)")).Click();
+            await Task.Delay(1000);
+            Driver.FindElement(By.CssSelector(".business-unit")).SendKeys(Keys.ArrowDown + Keys.Enter);
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#taskdivcontainer > span:nth-child(2) > span:nth-child(1)")));
+            Driver.FindElement(By.CssSelector("#taskdivcontainer > span:nth-child(2) > span:nth-child(1)")).Click();
             Driver.FindElement(By.CssSelector(".select2-search__field")).SendKeys("HVAC" + Keys.Enter);
-            Driver.FindElement(By.CssSelector("#select2-leadSourceCombobox-container")).Click();
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".select2-search__field")));
-            Driver.FindElement(By.CssSelector(".select2-search__field")).SendKeys("Google" + Keys.Enter);
+            Driver.FindElement(By.CssSelector("#CustomerPO")).Click();
+            Driver.FindElement(By.CssSelector("#CustomerPO")).SendKeys("" + randomInt2);
             Driver.FindElement(By.CssSelector("button.success-btn:nth-child(3)")).Click();
+            await Task.Delay(5000);
 
-
-
+            Driver.FindElement(By.CssSelector("#sidebar-wrapper > ul > li:nth-child(1) > a > span:nth-child(2)")).Click();
+            await Task.Delay(2000);
 
         }
 

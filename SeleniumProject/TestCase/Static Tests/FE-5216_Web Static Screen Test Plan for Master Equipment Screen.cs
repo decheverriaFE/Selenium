@@ -18,10 +18,11 @@ using AventStack.ExtentReports.Reporter.Configuration;
 using System.Drawing.Imaging;
 
 
+
 namespace SeleniumProject.TestCase.Static_Tests
 {
     [TestFixture]
-    public class FE_5216_Web_Static_Screen_Test_Plan_for_Master_Equipment_Screen
+    public class FE_5216_Web_Static_Screen_Test_Plan_for_Master_Equipment_Screen 
     {
 
         IWebDriver Driver = new ChromeDriver();
@@ -33,7 +34,7 @@ namespace SeleniumProject.TestCase.Static_Tests
         public void ExtentStart()
         {
             extent = new ExtentReports(); // Create object for extent reports
-            ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(@"C:\Users\rdasilva\Source\Repos\decheverriaFE\Selenium\SeleniumProject\ExtentReport\"); // needs html endpoint, storing on extentreport folder
+            ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(@"C:\Users\raymo\Source\Repos\Selenium\SeleniumProject\ExtentReport"); // needs html endpoint, storing on extentreport folder
             extent.AttachReporter(htmlReporter); 
         }
 
@@ -108,6 +109,7 @@ namespace SeleniumProject.TestCase.Static_Tests
                 if (findEquip == "the filter shows no results")
                 {
                     test.Log(Status.Fail, "Could not find new Master Equipment - FAIL");
+                    test.Fail("Screenshot", MediaEntityBuilder.CreateScreenCaptureFromPath("screenshot.png").Build());
                     Assert.Fail(findEquip + " Not found FAIL");
                 }
                 else
@@ -144,8 +146,8 @@ namespace SeleniumProject.TestCase.Static_Tests
                 else
                 {
                     test.Log(Status.Fail, "Changes were not present - FAIL.");
+                    test.Fail("Screenshot", MediaEntityBuilder.CreateScreenCaptureFromPath("screenshot.png").Build());
                     Assert.Fail("JIRA 5216 FAIL. Changes made to comments section of Master Equip FAIL. Line 106.");
-                    Driver.FindElement(By.CssSelector("")).Click();
                 }
 
 
@@ -183,8 +185,11 @@ namespace SeleniumProject.TestCase.Static_Tests
             }
             catch (Exception e)
             {
+                test.Fail("Screenshot", MediaEntityBuilder.CreateScreenCaptureFromPath("screenshot.png").Build());
                 test.Log(Status.Fail, e.ToString());
                 test.Log(Status.Fail, "FAIL");
+                test.Fail("Screenshot", MediaEntityBuilder.CreateScreenCaptureFromPath("screenshot.png").Build());
+                Assert.Fail("");
                 throw;
             }
         }
