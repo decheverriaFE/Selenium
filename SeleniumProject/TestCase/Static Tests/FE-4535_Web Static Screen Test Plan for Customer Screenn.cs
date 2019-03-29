@@ -21,6 +21,7 @@ namespace SeleniumProject.TestCase.Static_Tests
 {
     class FE_4535_Web_Static_Screen_Test_Plan_for_Customer_Screenn
     {
+        //Globals
         IWebDriver Driver = new ChromeDriver();
 
         [SetUp]
