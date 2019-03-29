@@ -197,12 +197,6 @@ namespace SeleniumProject.TestCase
                     IWebElement clickEnterManually = Driver.FindElement(By.ClassName("enter-manually-label"));
                     clickEnterManually.Click();
 
-            //-------------------------------------------------------------------------------------//
-            //Go to Setting and verify Clearent Payment.
-
-
-
-
 
 
             //Clearent Payment
@@ -272,52 +266,10 @@ namespace SeleniumProject.TestCase
                     IWebElement ClickOnConfirrmButtonWO = Driver.FindElement(By.CssSelector("#saveModal > div:nth-child(2) > div.clearfix.modal-button-container > button.custom-btn.success-btn.modal-confirm-button"));
                     ClickOnConfirrmButtonWO.Click();
 
-                    /*await Task.Delay(2000);
-                          var wait12 = new WebDriverWait(Driver, new TimeSpan(0, 0, 30));
-                         IWebElement element12 = wait12.Until(c => c.FindElement(By.CssSelector("#dispatch-general-details > div:nth-child(1) > div:nth-child(1) > div > div.setting-form > div > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(5) > text")));
-
-                    IWebElement ShowmoreLink = Driver.FindElement(By.CssSelector("#dispatch-general-details > div:nth-child(1) > div:nth-child(1) > div > div.setting-form > div > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(5) > text"));
-                    ShowmoreLink.Click();
-
-
-                    await Task.Delay(2000);
-                              IWebElement PrintButtonWO = Driver.FindElement(By.CssSelector("custom-btn cancel-btn print-button x-small"));
-                               PrintButtonWO.Click();*/
-
-
-
-
-
-
-            /*await Task.Delay(5000);
-                 var wait13 = new WebDriverWait(Driver, new TimeSpan(0, 0, 30));
-                 IWebElement element13 = wait13.Until(c => c.FindElement(By.CssSelector("#contactArea > div > div.clearfix.print-btn-containers > button.custom-btn.success-btn")));
-
-            IWebElement SendEmailButtonWO = Driver.FindElement(By.CssSelector("#contactArea > div > div.clearfix.print-btn-containers > button.custom-btn.success-btn"));
-            SendEmailButtonWO.Click();*/
-
-            /*Schedule Now option
-            IWebElement ClickScheduleNow = Driver.FindElement(By.CssSelector(".confirm-btn"));
-            ClickScheduleNow.Click();
-
-            IWebElement WONumber = Driver.FindElement(By.CssSelector("#kogrid > div > div.kgViewport > div > div > div:nth-child(1) > div > div.kgCell.col1.draggable_row > div > a"));
-            WONumber.Click();
-
-            IWebElement LinkGotoDetails = Driver.FindElement(By.ClassName("navigate-lnk"));
-            LinkGotoDetails.Click();*/
-
-
-
-
-
-
+              
 
         }
-
-
-     
         
-
         private void WaitForElementVisible(By by1, object by2, int v, object timeOutInSeconds)
         {
             throw new NotImplementedException();

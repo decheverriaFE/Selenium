@@ -274,37 +274,10 @@ namespace SeleniumProject.TestCase
 
             }
 
-            /* var CostExpense = Driver.FindElement(By.CssSelector("tr.inline-editable-table-row:nth-child(2) > td:nth-child(1) > div:nth-child(1) > text:nth-child(1)"));
-
-
-            if (!string.IsNullOrEmpty(CostExpense.Text) && CostExpense.Text == "Expenses on Invoice")
-                
-            {
-                
-                WebDriverWait wait16 = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-                wait16.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("button.custom-btn:nth-child(4)")));
-
-                Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(4)")).Click();
-                Driver.FindElement(By.CssSelector("#saveModal > div:nth-child(2) > div.clearfix.modal-button-container > button.custom-btn.success-btn.modal-confirm-button")).Click();
-                
-
-            }
-
-
-            //else
-            //{
-                
-                //WebDriverWait wait17 = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-               // wait17.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("button.custom-btn:nth-child(3)")));
-
-               // Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(3)")).Click();
-
-
-            //}*/
+           
 
 
             
-
 
 
         }
