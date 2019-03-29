@@ -38,6 +38,14 @@ namespace SeleniumProject.TestCase.Static_Tests
         public async Task WO_Summary_Screen()
         {
 
+
+
+
+
+
+
+
+            await Task.Delay(1000);
         }
 
 

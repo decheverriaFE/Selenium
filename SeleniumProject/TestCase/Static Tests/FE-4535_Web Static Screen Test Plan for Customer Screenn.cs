@@ -34,7 +34,7 @@ namespace SeleniumProject.TestCase.Static_Tests
         }
 
         [Test, Order(1)]
-        public async Task CustomerScreenTest()
+        public async Task CustomerScreenTest() // JIRA 4535, Customers Static test
         {
             //Declare local variables
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(30));
