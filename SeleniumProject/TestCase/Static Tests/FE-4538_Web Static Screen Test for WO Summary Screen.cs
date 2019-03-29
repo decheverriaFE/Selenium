@@ -25,6 +25,21 @@ namespace SeleniumProject.TestCase.Static_Tests
         //Globals
         IWebDriver Driver = new ChromeDriver();
 
+        [SetUp]
+        public async Task InitializeASync() // Go to Home page 
+        {
+            HomePage home = new HomePage(Driver);
+            home.gotoPage();
+            await Task.Delay(5000);
+
+        }
+
+        [Test, Order(1)]
+        public async Task WO_Summary_Screen()
+        {
+
+        }
+
 
 
 

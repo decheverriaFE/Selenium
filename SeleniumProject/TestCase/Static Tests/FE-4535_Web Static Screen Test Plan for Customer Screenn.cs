@@ -33,7 +33,7 @@ namespace SeleniumProject.TestCase.Static_Tests
 
         }
 
-        [Test]
+        [Test, Order(1)]
         public async Task CustomerScreenTest()
         {
             //Declare local variables
