@@ -219,7 +219,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("div.button-container:nth-child(4) > button:nth-child(1)")).Click();
             await Task.Delay(2000);
             Driver.FindElement(By.CssSelector("#successMessage > div.button-container.clearfix > button.custom-btn.success-btn")).Click();
-            await Task.Delay(1000);
+            await Task.Delay(4000);
 
             //Go back into customer and verify updated address from quick edit popup.
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#label > div")));
