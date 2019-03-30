@@ -40,6 +40,7 @@ namespace SeleniumProject.PageObject
         {
             
             Driver.Navigate().GoToUrl("https://fieldedgesiteea-staging.azurewebsites.net");
+           // Driver.Navigate().GoToUrl("https://fieldedge.com");
             Driver.Manage().Window.Maximize();
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(30));
             //DotNetSeleniumExtras.WaitHelpers NuGet package needs to be added
@@ -50,6 +51,9 @@ namespace SeleniumProject.PageObject
 
             Driver.FindElement(By.CssSelector("#LoginEmail")).SendKeys("auto01@fieldedge.com");
             Driver.FindElement(By.CssSelector("#Password")).SendKeys("qa2019");
+
+            //Driver.FindElement(By.CssSelector("#LoginEmail")).SendKeys("de@qalive.com");
+            //Driver.FindElement(By.CssSelector("#Password")).SendKeys("qa");
 
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#login-form > div:nth-child(8) > input")));
             Driver.FindElement(By.CssSelector("#login-form > div:nth-child(8) > input")).Click();
