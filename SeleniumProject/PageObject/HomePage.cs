@@ -48,8 +48,13 @@ namespace SeleniumProject.PageObject
             
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#LoginEmail")));
 
-            Driver.FindElement(By.CssSelector("#LoginEmail")).SendKeys("auto01@fieldedge.com");
-            Driver.FindElement(By.CssSelector("#Password")).SendKeys("qa2019");
+            //Staging -- EA
+            /*Driver.FindElement(By.CssSelector("#LoginEmail")).SendKeys("auto01@fieldedge.com");
+            Driver.FindElement(By.CssSelector("#Password")).SendKeys("qa2019");*/
+
+            //Production -- LIVE
+            Driver.FindElement(By.CssSelector("#LoginEmail")).SendKeys("raymond@qalive.com");
+            Driver.FindElement(By.CssSelector("#Password")).SendKeys("qa");
 
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#login-form > div:nth-child(8) > input")));
             Driver.FindElement(By.CssSelector("#login-form > div:nth-child(8) > input")).Click();
