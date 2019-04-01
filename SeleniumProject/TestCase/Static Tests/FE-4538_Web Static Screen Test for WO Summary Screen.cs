@@ -69,7 +69,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector(".select2-search__field")).SendKeys("HVAC" + Keys.Enter);
             Driver.FindElement(By.CssSelector("#CustomerPO")).Click();
             Driver.FindElement(By.CssSelector("#CustomerPO")).SendKeys("" + randomInt);
-            Driver.FindElement(By.CssSelector("#select2-primary-tech-dropdown-container")).Click();
+            Driver.FindElement(By.CssSelector(".select2-container--below > span:nth-child(1) > span:nth-child(1)")).Click();
             Driver.FindElement(By.CssSelector(".select2-search__field")).SendKeys("Field T." + Keys.Enter);
             Driver.FindElement(By.CssSelector("#start-date")).SendKeys(date.ToString("MM/dd/yyyy") + Keys.Enter);
             Driver.FindElement(By.CssSelector("#startTime")).Click();

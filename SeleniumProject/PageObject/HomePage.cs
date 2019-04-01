@@ -49,6 +49,7 @@ namespace SeleniumProject.PageObject
             
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#LoginEmail")));
 
+            //Staging -- EA
             Driver.FindElement(By.CssSelector("#LoginEmail")).SendKeys("auto01@fieldedge.com");
             Driver.FindElement(By.CssSelector("#Password")).SendKeys("qa2019");
 
