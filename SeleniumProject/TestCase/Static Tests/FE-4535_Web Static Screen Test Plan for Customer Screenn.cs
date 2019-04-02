@@ -103,7 +103,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             await Task.Delay(2000);
             Driver.FindElement(By.CssSelector(".select2-search__field")).SendKeys(Keys.Enter);
 
-            //First-Last-Company-Display Names add --> Address 1/Address 2 City/state/zip
+            //First-Last-Company-Display Names add --> Address 1/Address 2 City/state/zip.
             Driver.FindElement(By.CssSelector("#FirstName")).SendKeys("Automation");
             Driver.FindElement(By.CssSelector("#LastName")).SendKeys("Test" + " " + randomInt);
             Driver.FindElement(By.CssSelector("#CompanyName")).SendKeys("Umbrella Corporation");
