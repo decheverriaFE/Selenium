@@ -78,7 +78,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(3)")).Click();
             await Task.Delay(4000);
 
-            //Complete work-order -- No show --grab work-order number
+            //Complete work-order -- No show --grab work-order number Writing and very quickly
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("button.custom-btn:nth-child(4)")));            
             Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(4)")).Click();
             await Task.Delay(4000);
