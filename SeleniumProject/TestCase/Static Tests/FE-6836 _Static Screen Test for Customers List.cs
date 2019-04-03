@@ -99,6 +99,8 @@ namespace SeleniumProject.TestCase.Static_Tests
             IWebElement ClicAddCustomer = Driver.FindElement(By.CssSelector("#main-page-container > div.top-header-container > div > div > div.button-container > button.custom-btn.success-btn"));
             ClicAddCustomer.Click();
             //TestCase with BU
+
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form > div:nth-child(22) > div:nth-child(3) > manage-business-unit-prop > div > div > span > span.selection > span > span.select2-selection__arrow")));
             IWebElement SelectBU_Customer = Driver.FindElement(By.CssSelector("#form > div:nth-child(22) > div:nth-child(3) > manage-business-unit-prop > div > div > span > span.selection > span > span.select2-selection__arrow"));
             SelectBU_Customer.Click();
             //TypeBU
