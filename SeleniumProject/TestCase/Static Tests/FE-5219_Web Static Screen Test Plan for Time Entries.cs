@@ -47,6 +47,14 @@ namespace SeleniumProject.TestCase.Static_Tests
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#application-menu > div:nth-child(3) > ul:nth-child(2) > li:nth-child(5) > a > text")));
             Driver.FindElement(By.CssSelector("#application-menu > div:nth-child(3) > ul:nth-child(2) > li:nth-child(5) > a > text")).Click();
             //Select TimeEntries.
+
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#main-page-container > div.settings-sub-menu.clearfix > div.filter-container.clearfix > div:nth-child(3) > div.secondary-filter.box.long.date-filter > div:nth-child(1)")));
+            Driver.FindElement(By.CssSelector("#main-page-container > div.settings-sub-menu.clearfix > div.filter-container.clearfix > div:nth-child(3) > div.secondary-filter.box.long.date-filter > div:nth-child(1)")).Click();
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#main-page-container > div.settings-sub-menu.clearfix > div.filter-container.clearfix > div:nth-child(3) > div.secondary-filter.box.long.date-filter > div.filter-popup > div.date-filter-options > div:nth-child(1)")));
+            Driver.FindElement(By.CssSelector("#main-page-container > div.settings-sub-menu.clearfix > div.filter-container.clearfix > div:nth-child(3) > div.secondary-filter.box.long.date-filter > div.filter-popup > div.date-filter-options > div:nth-child(1)")).Click();
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#main-page-container > div.settings-sub-menu.clearfix > div.filter-container.clearfix > div:nth-child(3) > div.secondary-filter.box.long.date-filter > div.filter-popup > div.clearfix > button")));
+            Driver.FindElement(By.CssSelector("#main-page-container > div.settings-sub-menu.clearfix > div.filter-container.clearfix > div:nth-child(3) > div.secondary-filter.box.long.date-filter > div.filter-popup > div.clearfix > button")).Click();
+
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > tbody > tr > td:nth-child(1) > div")));
             Driver.FindElement(By.CssSelector("#settings-information-container > div:nth-child(2) > div.clearfix.main-content > table > tbody > tr > td:nth-child(1) > div")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div:nth-child(1) > div.clearfix.main-content > table > tbody > tr:nth-child(2) > td:nth-child(3) > div")));
@@ -72,11 +80,6 @@ namespace SeleniumProject.TestCase.Static_Tests
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("body > span > span > span.select2-search.select2-search--dropdown > input")));
             Driver.FindElement(By.CssSelector("body > span > span > span.select2-search.select2-search--dropdown > input")).Click();
             Driver.FindElement(By.CssSelector("body > span > span > span.select2-search.select2-search--dropdown > input")).SendKeys("idle" + Keys.Enter + Keys.Tab + Keys.Tab + Keys.Tab + Keys.Tab + Keys.Tab + Keys.Tab + Keys.Enter);
-
-            await Task.Delay(3000);
-            //Filter
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#settings-information-container > div:nth-child(1) > div.clearfix.main-content > table > thead > tr > th:nth-child(2)")));
-            Driver.FindElement(By.CssSelector("#settings-information-container > div:nth-child(1) > div.clearfix.main-content > table > thead > tr > th:nth-child(2)")).Click();
 
            
         }
