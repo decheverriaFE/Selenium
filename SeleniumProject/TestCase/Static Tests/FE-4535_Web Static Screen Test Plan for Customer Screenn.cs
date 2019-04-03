@@ -251,7 +251,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(7)")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.setting-form:nth-child(3)")));
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector(".select2-search__field")));
-            await Task.Delay(3000);
+            await Task.Delay(3000); // fail
             Driver.FindElement(By.CssSelector("#new-work-order-id > div.form-formatted > div.setting-form.scrollable.form-horizontal.no-margin-top > div:nth-child(2) > div:nth-child(2) > div > button")).Click();          
             await Task.Delay(1000);
 

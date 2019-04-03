@@ -76,11 +76,12 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("#CustomerPO")).Click();
             Driver.FindElement(By.CssSelector("#CustomerPO")).SendKeys("" + randomInt);
             Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(3)")).Click();
-            await Task.Delay(4000);
+            await Task.Delay(6000);
 
             //Complete work-order -- No show --grab work-order number Writing and very quickly
-            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("button.custom-btn:nth-child(4)")));            
-            Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(4)")).Click();
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#label")));
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#label > div.clearfix > div.button-container > button.custom-btn.success-btn.save-btn")));            
+            Driver.FindElement(By.CssSelector("#label > div.clearfix > div.button-container > button.custom-btn.success-btn.save-btn")).Click();
             await Task.Delay(4000);
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("li.radio:nth-child(13) > label:nth-child(2)")));
             Driver.FindElement(By.CssSelector("li.radio:nth-child(13) > label:nth-child(2)")).Click();
