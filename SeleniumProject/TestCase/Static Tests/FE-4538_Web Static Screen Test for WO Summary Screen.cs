@@ -69,8 +69,9 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector(".select2-search__field")).SendKeys("HVAC" + Keys.Enter);
             Driver.FindElement(By.CssSelector("#CustomerPO")).Click();
             Driver.FindElement(By.CssSelector("#CustomerPO")).SendKeys("" + randomInt);
-            Driver.FindElement(By.CssSelector(".select2-container--below > span:nth-child(1) > span:nth-child(1)")).Click();
-            Driver.FindElement(By.CssSelector(".select2-search__field")).SendKeys("Field T." + Keys.Enter);
+            Driver.FindElement(By.CssSelector("#select2-primary-tech-dropdown-container")).Click();
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("body > span > span > span.select2-search.select2-search--dropdown > input")));
+            Driver.FindElement(By.CssSelector("body > span > span > span.select2-search.select2-search--dropdown > input")).SendKeys("Field T." + Keys.Enter);
             Driver.FindElement(By.CssSelector("#start-date")).SendKeys(date.ToString("MM/dd/yyyy") + Keys.Enter);
             Driver.FindElement(By.CssSelector("#startTime")).Click();
             Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(3)")).Click();
@@ -99,7 +100,7 @@ namespace SeleniumProject.TestCase.Static_Tests
         [TearDown]
         public void Closer()
         {
-            Driver.Quit();
+           // Driver.Quit();
         }
 
 
