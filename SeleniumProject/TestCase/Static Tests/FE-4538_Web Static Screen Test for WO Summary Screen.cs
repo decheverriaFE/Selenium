@@ -68,14 +68,13 @@ namespace SeleniumProject.TestCase.Static_Tests
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#taskdivcontainer > span:nth-child(2) > span:nth-child(1)")));
             Driver.FindElement(By.CssSelector("#taskdivcontainer > span:nth-child(2) > span:nth-child(1)")).Click();
             Driver.FindElement(By.CssSelector(".select2-search__field")).SendKeys("HVAC" + Keys.Enter);
-            Driver.FindElement(By.CssSelector("#CustomerPO")).Click();
-            Driver.FindElement(By.CssSelector("#CustomerPO")).SendKeys("" + randomInt);
-            Driver.FindElement(By.CssSelector("#select2-primary-tech-dropdown-container")).Click();
-            await Task.Delay(2000);
+            Driver.FindElement(By.CssSelector("#AddCustomerCallForm > div:nth-child(7) > div:nth-child(1) > div > span > span.selection > span > span.select2-selection__arrow")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("body > span > span > span.select2-search.select2-search--dropdown > input")));
             Driver.FindElement(By.CssSelector("body > span > span > span.select2-search.select2-search--dropdown > input")).SendKeys("Field T." + Keys.Enter);
             Driver.FindElement(By.CssSelector("#start-date")).SendKeys(date.ToString("MM/dd/yyyy") + Keys.Enter);
             Driver.FindElement(By.CssSelector("#startTime")).Click();
+            Driver.FindElement(By.CssSelector("#CustomerPO")).Click();
+            Driver.FindElement(By.CssSelector("#CustomerPO")).SendKeys("" + randomInt);
             Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(3)")).Click();
             await Task.Delay(4000);
 
@@ -102,7 +101,7 @@ namespace SeleniumProject.TestCase.Static_Tests
         [TearDown]
         public void Closer()
         {
-           // Driver.Quit();
+           Driver.Quit();
         }
 
 
