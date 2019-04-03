@@ -84,8 +84,9 @@ namespace SeleniumProject.TestCase.Static_Tests
             await Task.Delay(4000);
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("li.radio:nth-child(13) > label:nth-child(2)")));
             Driver.FindElement(By.CssSelector("li.radio:nth-child(13) > label:nth-child(2)")).Click();
-            await Task.Delay(1000);
-            Driver.FindElement(By.CssSelector(".modal-button-container > button:nth-child(1)")).Click();
+            await Task.Delay(2000);
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#saveModal > div:nth-child(2) > div.clearfix.modal-button-container > button.custom-btn.success-btn.modal-confirm-button")));
+            Driver.FindElement(By.CssSelector("#saveModal > div:nth-child(2) > div.clearfix.modal-button-container > button.custom-btn.success-btn.modal-confirm-button")).Click();
 
             /* WO Verification - NEEDS WO LOCATOR
              wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("div.note-bundle:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > p:nth-child(1) > a:nth-child(2)")));

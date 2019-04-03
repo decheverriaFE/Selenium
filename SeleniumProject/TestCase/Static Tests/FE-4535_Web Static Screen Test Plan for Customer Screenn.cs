@@ -207,7 +207,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("#details-navigator > div:nth-child(3) > div:nth-child(2)")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#details-list-container > div:nth-child(2) > button:nth-child(1)")));
             Driver.FindElement(By.CssSelector("#details-list-container > div:nth-child(2) > button:nth-child(1)")).Click();
-            await Task.Delay(1000);
+            await Task.Delay(4000);
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#ExistingCustomerMainInfo > div.header")));
             Driver.FindElement(By.CssSelector("#ExistingCustomerMainInfo > div.header > a")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementExists(By.CssSelector("#EditCustomerOverlay > div:nth-child(1)")));
@@ -218,7 +218,8 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("#Address2")).SendKeys("Suite 88");
             String newAddressAfter = Driver.FindElement(By.CssSelector("#Address2")).GetAttribute("value");
             Driver.FindElement(By.CssSelector("div.button-container:nth-child(4) > button:nth-child(1)")).Click();
-            await Task.Delay(2000);
+            await Task.Delay(4000);
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#successMessage > div.button-container.clearfix > button.custom-btn.success-btn")));
             Driver.FindElement(By.CssSelector("#successMessage > div.button-container.clearfix > button.custom-btn.success-btn")).Click();
             await Task.Delay(4000);
 
