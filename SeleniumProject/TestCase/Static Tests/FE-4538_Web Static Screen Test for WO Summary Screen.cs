@@ -60,7 +60,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             await Task.Delay(1000);
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#ExistingCustomerMainInfo > div.header")));
 
-            //Create Work-order -- Fill all fields in WO, assign primary tech -- Create-Work-Order
+            //Create Work-order -- Fill all fields in WO, assign primary tech -- Create-Work-Order.
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#task-details")));
             Driver.FindElement(By.CssSelector("span.select2:nth-child(5) > span:nth-child(1)")).Click();
             await Task.Delay(1000);
