@@ -82,6 +82,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("button.custom-btn:nth-child(4)")));            
             Driver.FindElement(By.CssSelector("button.custom-btn:nth-child(4)")).Click();
             await Task.Delay(4000);
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("li.radio:nth-child(13) > label:nth-child(2)")));
             Driver.FindElement(By.CssSelector("li.radio:nth-child(13) > label:nth-child(2)")).Click();
             await Task.Delay(1000);
             Driver.FindElement(By.CssSelector(".modal-button-container > button:nth-child(1)")).Click();
