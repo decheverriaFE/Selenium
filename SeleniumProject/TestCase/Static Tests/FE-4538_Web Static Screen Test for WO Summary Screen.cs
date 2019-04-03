@@ -71,6 +71,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("#CustomerPO")).Click();
             Driver.FindElement(By.CssSelector("#CustomerPO")).SendKeys("" + randomInt);
             Driver.FindElement(By.CssSelector("#select2-primary-tech-dropdown-container")).Click();
+            await Task.Delay(2000);
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("body > span > span > span.select2-search.select2-search--dropdown > input")));
             Driver.FindElement(By.CssSelector("body > span > span > span.select2-search.select2-search--dropdown > input")).SendKeys("Field T." + Keys.Enter);
             Driver.FindElement(By.CssSelector("#start-date")).SendKeys(date.ToString("MM/dd/yyyy") + Keys.Enter);
