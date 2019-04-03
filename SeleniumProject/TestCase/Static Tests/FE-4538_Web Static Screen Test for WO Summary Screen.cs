@@ -101,7 +101,7 @@ namespace SeleniumProject.TestCase.Static_Tests
         [TearDown]
         public void Closer()
         {
-            Driver.Quit();
+           // Driver.Quit();
         }
 
 
