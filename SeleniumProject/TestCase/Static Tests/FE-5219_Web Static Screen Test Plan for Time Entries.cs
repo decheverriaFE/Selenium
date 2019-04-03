@@ -42,6 +42,8 @@ namespace SeleniumProject.TestCase.Static_Tests
 
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(30));
 
+            //div.setting-container:nth-child(3) > ul:nth-child(2) > li:nth-child(5) > a:nth-child(1) > text:nth-child(1)
+
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#setting-link-container > ul > li > a")));
             Driver.FindElement(By.CssSelector("#setting-link-container > ul > li > a")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#application-menu > div:nth-child(3) > ul:nth-child(2) > li:nth-child(5) > a > text")));
