@@ -103,6 +103,7 @@
     <Compile Include="TestCase\Static Tests\FE-4535_Web Static Screen Test Plan for Customer Screenn.cs" />
     <Compile Include="TestCase\Static Tests\FE-4538_Web Static Screen Test for WO Summary Screen.cs" />
     <Compile Include="TestCase\Static Tests\FE-4772_Web Static Screen Test Plan for Agreement Plans.cs" />
+    <Compile Include="TestCase\Static Tests\FE-5120_Web Static Screen Test Plan for Board Configuration.cs" />
     <Compile Include="TestCase\Static Tests\FE-5133_Web Static Screen Test Plan for Quotes List.cs" />
     <Compile Include="TestCase\Static Tests\FE-5135_Web Static Screen Test Plan for Invoice Forms.cs" />
     <Compile Include="TestCase\Static Tests\FE-5196_Web Static Screen Test Plan for Call Lead Source Screen.cs" />
