@@ -56,6 +56,11 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("#application-menu > div:nth-child(3) > ul:nth-child(2) > li:nth-child(3) > a > text")).Click();
             //Update Techs
 
+
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#weekly-schedule-table > img:nth-child(5)")));
+            Driver.FindElement(By.CssSelector("#weekly-schedule-table > img:nth-child(5)")).Click();
+
+
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#table-btn-container > table > tbody > tr:nth-child(2) > td:nth-child(5) > div.col-lg-9.col-md-8.col-sm-6.col-xs-6 > text")));
             Driver.FindElement(By.CssSelector("#table-btn-container > table > tbody > tr:nth-child(2) > td:nth-child(5) > div.col-lg-9.col-md-8.col-sm-6.col-xs-6 > text")).Click();
 
@@ -93,7 +98,7 @@ namespace SeleniumProject.TestCase.Static_Tests
         [TearDown]
         public void CloseDown()
         {
-            Driver.Quit();
+           // Driver.Quit();
             
         }
 } }
