@@ -385,6 +385,9 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("#sidebar-wrapper > ul > li:nth-child(1) > a > span:nth-child(2)")).Click();
             await Task.Delay(2000);
 
+
+
+
         }
 
         [TearDown]
