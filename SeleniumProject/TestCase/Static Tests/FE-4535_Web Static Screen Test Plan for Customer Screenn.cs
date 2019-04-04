@@ -12,10 +12,6 @@ using SeleniumWaitHelper = SeleniumExtras.WaitHelpers;
 using System.Windows.Forms;
 using Keys = OpenQA.Selenium.Keys;
 using NUnit.Framework;
-using AventStack.ExtentReports;
-using AventStack.ExtentReports.Reporter;
-using AventStack.ExtentReports.Reporter.Configuration;
-using System.Drawing.Imaging;
 
 namespace SeleniumProject.TestCase.Static_Tests
 {
