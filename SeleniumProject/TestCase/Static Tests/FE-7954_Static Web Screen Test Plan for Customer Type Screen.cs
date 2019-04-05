@@ -12,7 +12,7 @@ using SeleniumWaitHelper = SeleniumExtras.WaitHelpers;
 
 namespace SeleniumProject.TestCase.Static_Tests
 {
-    class FE_5220__Web_Static_Screen_Test_Plan_for_Customer_Type_Screen
+    class FE_7954__Web_Static_Screen_Test_Plan_for_Customer_Type_Screen
     {
         //Selenium Driver
         protected IWebDriver Driver;

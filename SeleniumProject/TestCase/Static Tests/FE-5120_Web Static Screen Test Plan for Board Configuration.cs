@@ -112,16 +112,19 @@ namespace SeleniumProject.TestCase.Static_Tests
             }
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#taskdivcontainer > span > span.selection > span > span.select2-selection__arrow > b")));
             Driver.FindElement(By.CssSelector("#taskdivcontainer > span > span.selection > span > span.select2-selection__arrow > b")).Click();
+
+           
             IList<IWebElement> options2 = Driver.FindElements(By.ClassName("select2-results__options"));
             await Task.Delay(2000);
 
             if (options2.Any())
-
-            {
+                      
 
                 options2[0].Click();
 
-            }
+           
+
+
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#leadSourceDivContainer > span > span.selection > span > span.select2-selection__arrow")));
             Driver.FindElement(By.CssSelector("#leadSourceDivContainer > span > span.selection > span > span.select2-selection__arrow")).Click();
             IList<IWebElement> options3 = Driver.FindElements(By.ClassName("select2-results__options"));
