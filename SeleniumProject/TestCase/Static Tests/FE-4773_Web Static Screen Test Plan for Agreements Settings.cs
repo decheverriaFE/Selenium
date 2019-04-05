@@ -55,7 +55,7 @@ namespace SeleniumProject.TestCase.Static_Tests
             //Verify all fields by altering every one --> Then Save.
             string baseCounter = Driver.FindElement(By.CssSelector("#Properties_AgreementCounter")).GetAttribute("value");
             Driver.FindElement(By.CssSelector("#Properties_AgreementDiscountPercent")).Click();
-            Driver.FindElement(By.CssSelector("#Properties_AgreementDiscountPercent")).SendKeys(Keys.Clear);
+            Driver.FindElement(By.CssSelector("#Properties_AgreementDiscountPercent")).SendKeys(Keys.Backspace + Keys.Backspace);
             Driver.FindElement(By.CssSelector("#Properties_AgreementDiscountPercent")).SendKeys(randomSecondIntString + Keys.Tab + Keys.Clear + randomIntString);
             Driver.FindElement(By.CssSelector("#allowAgreementPriceOverride")).Click(); //override price
             Driver.FindElement(By.CssSelector("#showAgreementSavings")).Click(); //agreement savings
@@ -81,13 +81,16 @@ namespace SeleniumProject.TestCase.Static_Tests
 
                 if (currentCounter == randomIntString)
                 {
-                    Driver.FindElement(By.CssSelector("#Properties_AgreementDiscountPercent")).SendKeys(Keys.Clear + baseDiscount + Keys.Tab + Keys.Clear + baseCounter);
+                    Driver.FindElement(By.CssSelector("#Properties_AgreementDiscountPercent")).Click();
+                    Driver.FindElement(By.CssSelector("#Properties_AgreementDiscountPercent")).SendKeys(Keys.Backspace + Keys.Backspace);
+                    Driver.FindElement(By.CssSelector("#Properties_AgreementDiscountPercent")).SendKeys(baseDiscount + Keys.Tab + Keys.Clear + baseCounter);
                     Driver.FindElement(By.CssSelector("#allowAgreementPriceOverride")).Click(); //override price
                     Driver.FindElement(By.CssSelector("#showAgreementSavings")).Click(); //agreement savings
                     Driver.FindElement(By.CssSelector("#EnableAgrSetTechAndTime")).Click();
                     Driver.FindElement(By.CssSelector("#AllowPhoneCallsOnWeekends")).Click();
                     Driver.FindElement(By.CssSelector("#automaticDeactivation")).Click();
                     Driver.FindElement(By.CssSelector("button.small:nth-child(1)")).Click();
+                    await Task.Delay(2000);
                 }
                 else
                 {
@@ -100,16 +103,9 @@ namespace SeleniumProject.TestCase.Static_Tests
 
             }
 
-            
+            Driver.FindElement(By.CssSelector("li.side-bar-icon:nth-child(3) > a:nth-child(1) > span:nth-child(2)")).Click();
             await Task.Delay(6000);
 
-
-
-
-
-
-
-            await Task.Delay(4000);
         }
 
         public void Closer()
