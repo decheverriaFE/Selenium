@@ -91,7 +91,7 @@ namespace SeleniumProject.TestCase.Static_Tests
                 }
                 else
                 {
-
+                    Assert.Fail("JIRA FE-4773 FAIL. Updates made to Settings --> Agreements WORKED, but reverting to old settings did not..");
                 }
             }
             else
