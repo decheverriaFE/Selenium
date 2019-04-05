@@ -110,6 +110,7 @@
     <Compile Include="TestCase\Static Tests\FE-5196_Web Static Screen Test Plan for Call Lead Source Screen.cs" />
     <Compile Include="TestCase\Static Tests\FE-5202_Web Static Screen Test Plan for Skills Screen.cs" />
     <Compile Include="TestCase\Static Tests\FE-5204_Web Static Screen Test Plan for Weekly Schedule Screen.cs" />
+    <Compile Include="TestCase\Static Tests\FE-5211_Web Static Screen Test Plan for Dispatch Priority Screen.cs" />
     <Compile Include="TestCase\Static Tests\FE-5212_Web Static Screen Test Plan for Task Settings Screen1.cs" />
     <Compile Include="TestCase\Static Tests\FE-5213_Web Static Screen Test Plan for Categories Screen1.cs" />
     <Compile Include="TestCase\Static Tests\FE-5214_Web Static Screen Test Plan for Appointment Block Configuration Screen1.cs" />
