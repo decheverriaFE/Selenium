@@ -46,7 +46,11 @@ namespace SeleniumProject.TestCase.Static_Tests
             Driver.FindElement(By.CssSelector("#setting-link-container > ul > li > a")).Click();
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#application-menu > div:nth-child(1) > ul > li:nth-child(4) > a > text")));
             Driver.FindElement(By.CssSelector("#application-menu > div:nth-child(1) > ul > li:nth-child(4) > a > text")).Click();
-            //Add task
+            //Add Dispatch priority
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#main-page-container > div.top-header-container > div > div > div.button-container > button")));
+            Driver.FindElement(By.CssSelector("#main-page-container > div.top-header-container > div > div > div.button-container > button")).Click();
+
+           
 
 
         }
