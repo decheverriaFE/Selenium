@@ -34,7 +34,7 @@ namespace SeleniumProject.TestCase.Static_Tests
         }
 
         [Test]//Nunit - Anotation to mark a method as a Automated TestCase 
-        public async Task MergeCustomer()
+        public async Task MergeCustomer1()
         {
 
             HomePage home = new HomePage(Driver);
