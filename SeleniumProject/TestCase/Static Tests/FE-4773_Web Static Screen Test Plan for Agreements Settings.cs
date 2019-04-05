@@ -36,12 +36,13 @@ namespace SeleniumProject.TestCase.Static_Tests
             //Declare local variables
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(30));
             Random randomGenerator = new Random();
-            int randomInt = randomGenerator.Next(10000);
+            int randomInt = randomGenerator.Next(1000, 3000);
             int randomSecondInt = randomGenerator.Next(51);
-            DateTime today = DateTime.Today;
-            var date = today.Date;
-            int discountBase = 15;
-            int nextCounter = 1001;
+            string randomIntString = randomInt.ToString();
+            string randomSecondIntString = randomSecondInt.ToString();
+            string baseDiscount = "15";
+
+
 
 
             //Navigate to Settings --> Agreements
@@ -52,13 +53,19 @@ namespace SeleniumProject.TestCase.Static_Tests
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form")));
 
             //Verify all fields by altering every one --> Then Save.
-            string myVar = Driver.FindElement(By.CssSelector("#Properties_AgreementCounter")).GetAttribute("value");
-            Driver.FindElement(By.CssSelector("#Properties_AgreementDiscountPercent")).SendKeys(randomSecondInt + Keys.Tab + randomInt);
+            string baseCounter = Driver.FindElement(By.CssSelector("#Properties_AgreementCounter")).GetAttribute("value");
+            Driver.FindElement(By.CssSelector("#Properties_AgreementDiscountPercent")).Click();
+            Driver.FindElement(By.CssSelector("#Properties_AgreementDiscountPercent")).SendKeys(Keys.Clear);
+            Driver.FindElement(By.CssSelector("#Properties_AgreementDiscountPercent")).SendKeys(randomSecondIntString + Keys.Tab + Keys.Clear + randomIntString);
             Driver.FindElement(By.CssSelector("#allowAgreementPriceOverride")).Click(); //override price
             Driver.FindElement(By.CssSelector("#showAgreementSavings")).Click(); //agreement savings
             Driver.FindElement(By.CssSelector("#EnableAgrSetTechAndTime")).Click();
+            wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#main-page-container > div.dynamic-content.clearfix > div > div > div > div > div.button-container > button")));
+            Driver.FindElement(By.CssSelector("#main-page-container > div.dynamic-content.clearfix > div > div > div > div > div.button-container > button")).Click(); //Popup - Scheduling
             Driver.FindElement(By.CssSelector("#AllowPhoneCallsOnWeekends")).Click();
             Driver.FindElement(By.CssSelector("#manualDeactivation")).Click();
+            string currentDiscount = Driver.FindElement(By.CssSelector("#Properties_AgreementDiscountPercent")).GetAttribute("value");
+            string currentCounter = Driver.FindElement(By.CssSelector("#Properties_AgreementCounter")).GetAttribute("value");
             Driver.FindElement(By.CssSelector("button.small:nth-child(1)")).Click();
             await Task.Delay(6000);
 
@@ -69,14 +76,31 @@ namespace SeleniumProject.TestCase.Static_Tests
             await Task.Delay(2000);
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#form")));
 
-            int x = Int32.Parse(myVar.Text);
-            Driver.FindElement(By.CssSelector("#Properties_AgreementDiscountPercent")).SendKeys(discountBase + Keys.Tab + randomInt);
-            Driver.FindElement(By.CssSelector("#allowAgreementPriceOverride")).Click(); //override price
-            Driver.FindElement(By.CssSelector("#showAgreementSavings")).Click(); //agreement savings
-            Driver.FindElement(By.CssSelector("#EnableAgrSetTechAndTime")).Click();
-            Driver.FindElement(By.CssSelector("#AllowPhoneCallsOnWeekends")).Click();
-            Driver.FindElement(By.CssSelector("#manualDeactivation")).Click();
-            Driver.FindElement(By.CssSelector("button.small:nth-child(1)")).Click();
+            if (currentDiscount == randomSecondIntString)
+            {
+
+                if (currentCounter == randomIntString)
+                {
+                    Driver.FindElement(By.CssSelector("#Properties_AgreementDiscountPercent")).SendKeys(Keys.Clear + baseDiscount + Keys.Tab + Keys.Clear + baseCounter);
+                    Driver.FindElement(By.CssSelector("#allowAgreementPriceOverride")).Click(); //override price
+                    Driver.FindElement(By.CssSelector("#showAgreementSavings")).Click(); //agreement savings
+                    Driver.FindElement(By.CssSelector("#EnableAgrSetTechAndTime")).Click();
+                    Driver.FindElement(By.CssSelector("#AllowPhoneCallsOnWeekends")).Click();
+                    Driver.FindElement(By.CssSelector("#automaticDeactivation")).Click();
+                    Driver.FindElement(By.CssSelector("button.small:nth-child(1)")).Click();
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                Assert.Fail("JIRA FE-4773 FAIL. updates made to Settings --> Agreements did not hold, or element is not found.");
+
+            }
+
+            
             await Task.Delay(6000);
 
 
