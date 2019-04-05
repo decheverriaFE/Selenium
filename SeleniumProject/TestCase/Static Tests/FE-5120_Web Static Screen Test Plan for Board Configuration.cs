@@ -128,12 +128,8 @@ namespace SeleniumProject.TestCase.Static_Tests
             await Task.Delay(2000);
 
             if (options3.Any())
+               options3[0].Click();
 
-            {
-
-                options3[0].Click();
-
-            }
 
             wait.Until(SeleniumWaitHelper.ExpectedConditions.ElementIsVisible(By.CssSelector("#new-work-order-id > div.form-formatted > div:nth-child(4) > div > button:nth-child(3)")));
             Driver.FindElement(By.CssSelector("#new-work-order-id > div.form-formatted > div:nth-child(4) > div > button:nth-child(3)")).Click();
